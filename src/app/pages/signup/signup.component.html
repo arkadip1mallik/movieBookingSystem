@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="text-center">
+                <div class="img">
+                  <img src="images/Login.png" alt="login.png">
+                 </div>
+                 <div class="loginForm">
+                  <h1>SignUp</h1>
+                  <h6>Please Register yourself!!</h6>
+                  <div class="example-container">
+                      <mat-form-field>
+                        <mat-label>Enter your email</mat-label>
+                        <input
+                          matInput
+                          placeholder="pat@example.com"
+                          [formControl]="email"
+                          (blur)="updateErrorMessage()"
+                          required
+                        />
+                        @if (email.invalid) {
+                          <mat-error>{{errorMessage()}}</mat-error>
+                        } 
+                      </mat-form-field>
+                      <br>
+                      <mat-form-field>
+                          <mat-label>Name</mat-label>
+                          <input
+                            matInput
+                            placeholder="pat cumming"
+                            [formControl]="name"
+                            (blur)="updateErrorMessage()"
+                            required
+                          />
+                          @if (name.invalid) {
+                            <mat-error>{{errorMessage()}}</mat-error>
+                          } 
+                        </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Phone Number</mat-label>
+                        <input
+                          matInput
+                          placeholder="9876543210"
+                          [formControl]="phoneNumber"
+                          (blur)="updateErrorMessage()"
+                          required
+                        />
+                        @if (phoneNumber.invalid) {
+                          <mat-error>{{errorMessage()}}</mat-error>
+                        } 
+                      </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Enter password</mat-label>
+                        <input
+                          matInput
+                          placeholder="pat@123"
+                          [formControl]="password"
+                          (blur)="updateErrorMessage()"
+                          required
+                        />
+                        @if (password.invalid) {
+                          <mat-error>{{errorMessage()}}</mat-error>
+                        } 
+                      </mat-form-field>
+                      <br>
+                    <mat-form-field>
+                        <mat-label>Confirm password</mat-label>
+                        <input
+                          matInput
+                          placeholder="pat@123"
+                          [formControl]="confirmpassword"
+                          (blur)="updateErrorMessage()"
+                          required
+                        />
+                        @if (confirmpassword.invalid) {
+                          <mat-error>{{errorMessage()}}</mat-error>
+                        } 
+                      </mat-form-field>
+                      
+                    </div> <br>
+                    <button type="submit" class="btn btn-primary mb-2">Sign Up</button><br>
+                    <a routerLink="/login">Already Registered? Click to SignIn!!!</a>
+                    </div>
+                 <!-- <form>
+                  <form>
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3">
+                      </div>
+                    </div>
+
+                   
+                  </form>
+                 </form>   
+      </div>
+  </div>
+</div>
+
+<mat-form-field appearance="outline">
+<mat-label>Outline form field</mat-label>
+<input matInput placeholder="Placeholder">
+<mat-icon>save</mat-icon>
+<mat-hint>Hint</mat-hint>
+</mat-form-field> -->

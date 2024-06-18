@@ -1,0 +1,96 @@
+<div class="modal-content">
+    <h2>Select Your Seats</h2>
+    <div class="seat-selection">
+        <!-- VIP Seats -->
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <div class="seat" data-type="VIP">VIP<div class="price">₹500</div></div>
+        <!-- Regular Seats -->
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <div class="seat" data-type="Regular">Regular<div class="price">₹300</div></div>
+        <!-- Economy Seats -->
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+        <div class="seat" data-type="Economy">Economy<div class="price">₹200</div></div>
+    </div>
+    <div class="seat-info">
+        <p><strong>VIP:</strong> ₹500</p>
+        <p><strong>Regular:</strong> ₹300</p>
+        <p><strong>Economy:</strong> ₹200</p>
+    </div>
+    <button id="confirmBooking">Confirm Booking</button>
+</div>
+<div id="signinModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Please sign in to confirm your booking.</p>
+        <a href="Login.html"><button class="login-btn">Login</button></a>
+    </div>
+</div>
+
+<script>
+    // Handle seat selection
+    const seats = document.querySelectorAll(".seat");
+    seats.forEach(seat => {
+        seat.addEventListener("click", () => {
+            seat.classList.toggle("selected");
+        });
+    });
+
+    document.getElementById("confirmBooking").addEventListener("click", () => {
+        const selectedSeats = document.querySelectorAll(".seat.selected");
+        let totalPrice = 0;
+        selectedSeats.forEach(seat => {
+            const seatType = seat.getAttribute("data-type");
+            if (seatType === "VIP") totalPrice += 500;
+            else if (seatType === "Regular") totalPrice += 300;
+            else if (seatType === "Economy") totalPrice += 200;
+        });
+
+        // Show sign-in notification modal
+        const signinModal = document.getElementById("signinModal");
+        signinModal.style.display = "block";
+    });
+
+    // Hamburger menu for mobile
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    hamburgerBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+    });
+
+    // Close the modal
+    const signinModal = document.getElementById("signinModal");
+    const closeModal = document.getElementsByClassName("close")[0];
+    closeModal.onclick = function() {
+        signinModal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == signinModal) {
+            signinModal.style.display = "none";
+        }
+    }
+</script>

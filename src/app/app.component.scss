@@ -1,0 +1,50 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  // .example-header-image {
+  //   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  //   background-size: cover;
+  // }
+    .example-card :hover{
+      background-color: crimson;
+      transition: 0.5s;
+      transform: translate(0,-40px);
+      z-index: 1;
+    }
+    
+    
+    .flex{
+      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      flex-wrap: wrap;
+  
+    }
+    h1{
+      margin-top: 30px;
+    }
+    .imagDiv{
+      width: 100%;
+    }
+  
+    .paragraphMovie{
+      visibility: hidden;
+      &:hover {
+        display: contents;
+        position: relative;
+      }
+      
+    } 
+  
+    .example-card {
+      position: relative; 
+      overflow: hidden; 
+    }
+    
+    .example-card:hover .paragraphMovie {
+      visibility: visible; /* Show text on hover */
+    }
+    
+   
+    
