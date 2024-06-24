@@ -1,0 +1,16 @@
+<br><div class="btn-1">
+  <button1 [routerLink]="['/details']">Go Back</button1>
+</div>
+<div *ngIf="movie" class="movie-details">
+    <h2>{{ movie.title }}</h2>
+    <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image">
+    <p><br><h5>About The Movie: </h5><br>{{ movie.description }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <p>Duration: {{ movie.duration }}</p>
+    <p>Rating: {{ movie.rating }}</p>
+  </div>
+ 
+  <div class="btn">
+    <button [routerLink]="['/booking']">Book Now</button>
+</div>
+<br><br>

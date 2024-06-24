@@ -1,0 +1,35 @@
+<h1>Now Playing</h1>
+ <div class="card">
+    
+<div *ngFor="let movie of movies" class="movie">
+    <mat-card class="example-card" appearance="outlined">
+    <h2>{{ movie.title }}</h2>
+    <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image"><br><br><br>
+
+<div class="btn">
+    <button [routerLink]="['/movie', movie.id]">Book Now</button>
+</div>
+</mat-card>
+    <!-- <div class="details" *ngIf="movie.showDetails">
+      <p>Director: {{ movie.director }}</p>
+      <p>Duration: {{ movie.duration }}</p>
+      <p>Rating: {{ movie.rating }}</p>
+      <p>{{ movie.description }}</p>
+    </div> -->
+  </div>
+</div>
+<h1>Upcoming</h1>
+<div class="card">
+    
+    <div *ngFor="let movies of movie" class="movie">
+        <mat-card class="example-card" appearance="outlined">
+        <h2>{{ movies.title }}</h2>
+        <img [src]="movies.imageUrl" alt="{{ movies.title }}" class="movie-image"><br><br><br>
+    
+    <div class="btn">
+        <button [routerLink]="['/upcoming', movies.id]">More Details</button>
+    </div>
+    </mat-card>
+      </div>
+    </div>
+  

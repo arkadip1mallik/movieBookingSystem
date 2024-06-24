@@ -1,0 +1,76 @@
+.img{
+    display: flex;
+    position: relative;
+    direction: 1rem;
+    justify-content: right;
+}
+.movieBooking{
+    // background: orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .imageM{
+        // background: pink;
+        width: 20px;
+    }
+}
+.overAll {
+    // background: yellow;
+    display: flex;
+    justify-content: center;
+    
+    .centerBook {
+
+
+        .seats {
+            margin-bottom: 10px;
+          }
+          
+          button {
+            margin: 0 5px;
+            padding: 5px 10px;
+          }
+          
+          button.selected {
+            background-color: green;
+            color: white;
+          }
+          .confirmButton{
+           display: flex;
+          //  justify-content: center;
+         margin-left: 120px;
+         margin-top: 30px;
+          }
+        
+              
+        .confirmButton button {
+                padding: 12px 24px;
+                background-color: #266fbd;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 18px;
+                transition: background-color 0.3s ease;
+              }
+              
+        .confirmButton button:hover {
+                background-color: #7c34b6;
+              }
+        
+            }
+            
+}
+
+
+.selection-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .overAll {
+    width: 90%;
+  }
+}

@@ -1,0 +1,12 @@
+<br><div class="btn-1">
+  <button1 [routerLink]="['/details']">Go Back</button1>
+</div>
+<div *ngIf="upmovies" class="movie-detail">
+    <h2>{{ upmovies.title }}</h2>
+    <img [src]="upmovies.imageUrl" alt="{{ upmovies.title }}" class="movie-image">
+    <p><br><h5>About The Movie: </h5><br>{{ upmovies.description }}</p>
+    <p>Director: {{ upmovies.director }}</p>
+    <p>Duration: {{ upmovies.duration }}</p>
+    <p>Interested: {{ upmovies.rating }}</p>
+    <p>Releasing: {{ upmovies.releasing }}</p>
+  </div><br><br>

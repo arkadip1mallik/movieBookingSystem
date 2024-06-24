@@ -1,0 +1,65 @@
+<section class="bookNow">
+    <form class="formField">
+        <div class="name">
+            <mat-label>
+                Name:
+            </mat-label>
+            <input mat-input type="text"/>
+        </div>
+
+        <div class="mobile">
+            <mat-label>Phone Number</mat-label>
+
+    <input type="tel" matInput placeholder="987-654-1234">
+        </div>
+
+        <div class="email">
+            <mat-label>
+                Email
+            </mat-label>
+            <input mat-input type="email"/>
+        </div>
+
+        <div class="date">
+            <div>
+                {{'date'}}
+            </div>
+            <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+       
+        <div class="select">
+            Selected seat:
+            <div class="space">
+            
+                <span class="quantity">
+                    
+                    <span>{{seatsSelected}}</span>
+                </span>
+            </div>
+
+            <hr />
+        </div>
+        <div class="total">
+            Total payable:
+            <span>{{getTotal()}}</span>
+        </div>
+        <hr />
+        <div class="payButton">
+            <a mat-button [routerLink]="['/bookingHist']" routerLinkActive="router-link-active"  class="pay" (click)="close()">
+                Pay
+            </a>
+        </div>
+       
+
+        
+    </form>
+</section>

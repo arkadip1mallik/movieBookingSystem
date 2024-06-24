@@ -3,7 +3,7 @@
 </div> -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="home">xlayerMovies</a>
+    <a class="navbar-brand" routerLink="details">xlayerMovies</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -32,12 +32,18 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="contact">Contact Us</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="details">Movie Details</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="bookingHist">Bookings</a>
+        </li>
       </ul>
       <div class="col-3">
         <div style="display: flex; align-items: center">
           <mat-form-field appearance="outline">
             <mat-label>State</mat-label>
-            <mat-select [(ngModel)]="selectedState" (selectionChange)="onChangeState()">
+            <mat-select [(ngModel)]="selectedState" (click)="onChangeState()">
               <mat-option *ngFor="let state of stateList" [value]="state.value">
                 {{ state.name }}
               </mat-option>
@@ -58,11 +64,25 @@
         class="navbar-nav me-5 my-2 my-lg-0 navbar-nav-scroll"
         style="--bs-scroll-height: 100px"
       >
-        <li class="nav-item">
-          <a class="nav-link" routerLink="login"><button>Login</button></a>
-        </li>
         <!-- <li class="nav-item">
-        <a class="nav-link" routerLink="signup">SignUp</a>
+          <a class="nav-link" routerLink="login"><button>Login</button></a>
+        </li> -->
+
+
+        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><button>Login</button></a></li>
+        <li *ngIf="isLoggedIn" (mouseover)="showProfileDropdown = true" (mouseleave)="showProfileDropdown = false">
+          <a href="javascript:void(0)">My Profile</a>
+          <ul *ngIf="showProfileDropdown">
+            <li><a href="javascript:void(0)">Email: {{ userProfile.email }}</a></li>
+            <li><a href="javascript:void(0)">Name: {{ userProfile.name }}</a></li>
+            <li><a href="javascript:void(0)">Phone: {{ userProfile.phone }}</a></li>
+            <li><a (click)="logout()" href="javascript:void(0)"><button>Logout</button></a></li>
+          </ul>
+        </li>
+    
+        
+        <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="profile">Profile</a>
       </li> -->
       </ul>
     </div>
@@ -73,3 +93,69 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+<!-- 
+<footer>
+  <div class="icons">
+      <span class="innerIcon"> -->
+        <!-- <img src="assets/meta.jpg" class="icon" alt="twitter" /> -->
+        <!-- <img src="images/fb.png" class="icon" alt="facebook" />
+        <img src="images/you.png" class="icon" alt="youtube" />
+        <img src="images/ins.png" class="icon" alt="instagram" />
+      </span>
+  </div>
+  <div class="footerFlex">
+    <div>
+      <div class="iconText">
+        <img src="images/call.png" alt="called" class="icon" />
+        <h4>CONTACT US</h4>
+      </div>
+      <h2>XLAYER MOVIE TEAM</h2>
+      <p class="flexSpan">
+        <span>IT BHAWAN, 5th floor</span>
+        
+        <span>Tripura, India</span> -->
+        <!-- <span class="flex">
+          <span><b>Tel Fax:</b></span>
+          <span>+91 9366876540</span>
+        </span> -->
+        <!-- <span class="flex">
+          <span><b>Phone No:</b></span>
+          <span>+91 9867843210</span>
+        </span>
+        <span class="flex">
+          <span><b>Email:</b></span>
+          <span>xlayerMoviesTeam&#64;gmail.com </span>
+        </span>
+      </p>
+    </div>
+
+    <div>
+      <h2>Office at Tripura</h2>
+      <p class="flexSpan">
+        <span> 5th Floor, IT Bhavan Agartala, Tripura 799006 </span>
+        <span class="flex"> -->
+          <!-- <span>
+            <img src="assets/call.jpg" alt="call" class="icon"/>
+          </span> -->
+          <!-- <span>+91 9233107174</span> -->
+          <!-- <span>
+            <img src="assets/call.jpg" alt="call" class="icon"/>
+          </span> -->
+          <!-- <span>contact&#64;xlayer.in</span>
+        </span> -->
+
+
+          <!-- <span class="imgAG">
+            <img src="" alt="call" class="gpAp"/>
+            <img src="" alt="call" class="gpAp"/>
+          </span> -->
+<!-- 
+      </p>
+    </div>
+
+
+
+  </div>
+  <span class="lastCopy">Copyright©xLayer Technologies Private Limited 2024</span>
+</footer> -->

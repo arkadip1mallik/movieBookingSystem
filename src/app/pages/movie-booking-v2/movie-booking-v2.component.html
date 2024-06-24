@@ -1,0 +1,60 @@
+<div class="movieBooking">
+    <div class="imageM"> 
+        <img src="images/selectbox.png" alt="selectbox">
+    </div>
+    <div class="overAll">
+        
+        <div class="centerBook">
+            
+            <h2> Please select Your seat</h2>
+        <p>Total Seats Selected: {{ seatsSelected.length}}</p>
+        <p>Total Amount: Rs. {{totalAmount}}</p>
+        
+        <div class="selection-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Date</mat-label>
+              <mat-select [(ngModel)]="selectedDateSlot">
+                <mat-option *ngFor="let dateSlot of dateSlots" [value]="dateSlot">{{ dateSlot }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+         &nbsp; &nbsp;
+            <mat-form-field appearance="fill">
+              <mat-label>Time</mat-label>
+              <mat-select [(ngModel)]="selectedTimeSlot">
+                <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot">{{ timeSlot }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            &nbsp; &nbsp;
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Screen</mat-label>
+                <mat-select [(ngModel)]="selectedScreen">
+                  <mat-option *ngFor="let screen of screens" [value]="screen">{{ screen }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        
+          </div>
+        
+    
+
+        <div *ngFor="let row of rowId; let rowIndex = index">
+            <div class="seats">
+                <span> {{row}}
+                    <button *ngFor="let col of column" [ngClass]="{'selected':seatsSelected.includes(row+col)}" (click)="seatToggling(row,col)">{{col}}</button>
+                </span>
+            </div>
+        <div *ngIf="rowIndex === rowId.length - 1" class="confirmButton">
+       <button (click)="confirmBooking()">Confirm Seat Booking</button>
+          </div>
+        </div>
+       
+        </div>
+        <!-- <div>
+            <button *ngIf="!isLoggedIn" (click)="openLoginDialog()">Login</button>
+            <div *ngIf="isLoggedIn">
+              <button (click)="logout()">Logout</button>
+            </div>
+          </div> -->
+    </div>
+</div>
+

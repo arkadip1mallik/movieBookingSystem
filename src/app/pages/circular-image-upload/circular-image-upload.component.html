@@ -1,0 +1,8 @@
+<label for="fileInput">
+    <img *ngIf="imageUrl; else defaultImage" [src]="imageUrl" alt="Profile Image" class="profile-image">
+  </label>
+  <input type="file" id="fileInput" (change)="handleImageUpload($event)" style="display: none">
+  
+  <ng-template #defaultImage>
+    <div class="default-image">Upload Image</div>
+  </ng-template>

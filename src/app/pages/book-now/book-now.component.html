@@ -1,0 +1,8 @@
+<h4 mat-dialog-title> Confirm Booking</h4>
+<mat-dialog-content>
+  Would you like to continue?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="close()">No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="openPayment()">Ok</button>
+</mat-dialog-actions>

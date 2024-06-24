@@ -1,0 +1,10 @@
+<app-movie-booking-v2 (bookingConfirmed)="onBookingConfirmed($event)"></app-movie-booking-v2>
+
+<div *ngIf="seatsSelected.length > 0">
+  <h3>Selected Seats:</h3>
+  <ul>
+    <li *ngFor="let seat of seatsSelected">{{ seat }}</li>
+  </ul>
+  <p>Total Amount: Rs.{{ totalAmount }}</p>
+  <button (click)="proceedToPayment()">Proceed to Payment</button> <br> <br><br>
+</div>
