@@ -60,7 +60,7 @@ export class MovieBookingV2Component implements OnInit {
   confirmBooking() {
     if (!this.selectedDateSlot || !this.selectedTimeSlot || !this.selectedScreen) {
       const config = new MatSnackBarConfig();
-      config.verticalPosition = 'top';
+      config.verticalPosition = 'bottom';
       this.snackBar.open('Please select date, time and screen.', 'Close', config);
       //  {
       //   duration: 3000,
@@ -87,7 +87,7 @@ export class MovieBookingV2Component implements OnInit {
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
-      width: '400px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -98,7 +98,7 @@ export class MovieBookingV2Component implements OnInit {
   }
   openSignDialog(): void {
     const dialogRef = this.dialog.open(SignupDialogComponent, {
-      width: '400px',
+      width: '250px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

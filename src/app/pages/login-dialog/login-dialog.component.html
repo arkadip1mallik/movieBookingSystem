@@ -1,11 +1,12 @@
 
 
   <form #loginForm="ngForm"> 
+    <form (ngSubmit)="login()">
     <h1>Login</h1>
     <h6>Please enter email & password !!</h6>
-    <section class="text-gray-400 bg-gray-900 body-font">
+    <!-- <section class="text-gray-400 bg-gray-900 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-          <div class="lg:w-3/5 md:w-1/2 w-full md:pr-16 lg:pr-0 pr-0">
+          <div class="lg:w-3/5 md:w-1/2 w-full md:pr-16 lg:pr-0 pr-0"> -->
             <!-- <h1 class="title-font font-medium text-3xl text-white">
               National library of Tripura
             </h1>
@@ -65,8 +66,8 @@
           
         </div>
       </section> -->
-
-      <form (ngSubmit)="login()">
+      <mat-dialog-actions>
+     
         <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
         <div>
           <label for="username">Library_ID:</label>
@@ -77,14 +78,17 @@
           <input type="password" id="password" name="password" [(ngModel)]="password" required>
         </div><br>
         <div>
-          <button type="submit">Login</button>
+         
         </div>
         <!-- <a routerLink="/signup">Not Registered? Click to SignUp!!!</a> -->
-      </form>
+   
 
-<mat-dialog-actions>
+
     
         <!-- <button type="submit" class="btn btn-primary mb-2">Sign In</button><br> -->
+          <button type="submit">Login</button> <br>
             <button (click)="signup()">Not Registered? Click to SignUp!!!</button>
 <br>  <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
+    </form>
+</form>
