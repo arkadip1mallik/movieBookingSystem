@@ -1,35 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {CircularImageUploadComponent} from '../circular-image-upload/circular-image-upload.component'
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CircularImageUploadComponent,CommonModule],
+  imports: [CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit{
-  // userProfile = {};
-
-  // constructor(private authService: AuthService) { }
-
-  // ngOnInit() {
-  //   this.authService.userProfile$.subscribe(profile => {
-  //     this.userProfile = profile;
-  //   });
-  //   this.authService.fetchUserProfile(); 
-  // }
-
-  // logout() {
-  //   this.authService.logout();
-  // }
 
   userProfile = {
     email: '',
     name: '',
     phone: ''
-  };  // Example: Upload logic or emit the uploaded file to parent component
+  }; 
 
   constructor(private authService: AuthService) { }
 

@@ -1,8 +1,16 @@
+
 <h4 mat-dialog-title> Confirm Booking</h4>
 <mat-dialog-content>
-  Would you like to continue?
+  <h6><b>Selected Seats:</b></h6>
+  <ul>
+    <b><li *ngFor="let seat of data.seats">{{ seat }}</li></b>
+    <p *ngIf="selectedDate">Selected Date: {{ selectedDate | date }}</p>
+    <p *ngIf="selectedTime">Selected Time: {{ selectedTime }}</p>
+    <p *ngIf="selectedScreen">Selected Screen: {{ selectedScreen }}</p>
+  </ul>
+  <h6><b>Total Amount: Rs.{{ data.totalAmount }}</b></h6>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close (click)="close()">No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial (click)="openPayment()">Ok</button>
+  <button mat-button (click)="confirmBooking()">Pay</button>
+  <button mat-button (click)="cancelBooking()">Cancel</button>
 </mat-dialog-actions>

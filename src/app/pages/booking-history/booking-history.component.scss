@@ -1,28 +1,29 @@
 .example-container {
-    width: auto;
-    height: 100vh;
-    margin: 10px;
-    // border: 1px solid #555;
- 
-    background: #eee;
-    .firstDrawer {
-         width: 20%;
-    }
+  width: auto;
+  height: 100vh;
+  margin: 10px;
 
-    .secondDrawer {
-        // padding-left: 21%;
-       .secondDrawerSub1 {
-        
-        
-        table {
-            width: 100%;
-            height: 100vh;
-          }
-          
-          .mat-mdc-form-field {
-            font-size: 14px;
-            width: 100%;
-          }
-       }
-    }
+
+  background: #eee;
+  .firstDrawer {
+       width: 20%;
   }
+
+  .secondDrawer {
+  
+     .secondDrawerSub1 {
+      
+      
+      table {
+          width: 100%;
+          height: 100vh;
+        }
+        
+        .mat-mdc-form-field {
+          font-size: 14px;
+          width: 100%;
+        }
+     }
+  }
+  
+}

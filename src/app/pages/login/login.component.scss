@@ -1,43 +1,27 @@
-// .example-container mat-form-field + mat-form-field {
-//     margin-left: 8px;
-//     margin-top: 12px;
-//   }
-//   h1{
-//     margin-top: 12px;
-//     margin-bottom: 10px;
-//   }
-//   *{
-//     justify-content: center;
-//     padding: 10px;
-//     align-items: center;
-//   }
+
 .card{
-    // margin-top: 10px;
+  
     border: none;
     width: 1000px;
     padding: 40px;
-    position: absolute;
+    position: relative;
     top: 5%;
     left: 50%;
+    margin-bottom: 200px;
     transform: translate(-50%,50%);
-    // background: hsla(205, 55%, 36%, 1%);
-    // background: linear-gradient(90deg,hsla(205, 76%, 53%, 0.01) 0%, hsla(205, 63%, 39%, 0.01) 100%);
-    // background: pink;
+   
     
     
 }
-// .card h1,h6{
-//    color: #fff;
-// }
-// label{
-//     color: #fff;
-// }
+
 
 
 .text-center {
     display: flex;
-    // background: yellow;
-    
+   
+    span{
+        color: red;
+    }
     img{
         width: 100%;
     }
@@ -45,4 +29,3 @@
         width: 100%;
     }
 }
-

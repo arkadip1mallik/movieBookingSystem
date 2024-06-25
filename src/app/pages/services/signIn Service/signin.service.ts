@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, map, switchMap } from 'rxjs';
-// import { DialogConfirmLogoutComponent } from '../dialog-confirm-logout/dialog-confirm-logout.component';
 import { DialogLogoutComponent } from "../../dialog-logout/dialog-logout.component";
 
 
@@ -36,8 +35,6 @@ export class SigninService {
 
  private openConfirmation(): Observable<boolean> {
    const dialogRef = this.dialog.open(DialogLogoutComponent, {
-     // width: '400px',
-     // heigh
      
    });
 
@@ -48,7 +45,7 @@ export class SigninService {
   
 
   getSignin(body:any): Observable<any>{
-    console.log(body);
+  
     return this.http.post(
       'http://10.10.10.100/web/authentication/signin',
       body

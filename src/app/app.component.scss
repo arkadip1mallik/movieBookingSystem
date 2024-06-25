@@ -2,10 +2,6 @@
     max-width: 400px;
   }
   
-  // .example-header-image {
-  //   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  //   background-size: cover;
-  // }
     .example-card :hover{
       background-color: crimson;
       transition: 0.5s;
@@ -43,7 +39,7 @@
     }
     
     .example-card:hover .paragraphMovie {
-      visibility: visible; /* Show text on hover */
+      visibility: visible; 
     }
     
 
@@ -111,5 +107,112 @@ nav ul li {
   cursor: pointer;
 }
 
+
+footer {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  h2 {
+      font-size: 1.7rem;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  span {
+      font-size: 1rem;
+  }
+
+  .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .flexSpan {
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+      .flex {
+          display: flex;
+          align-items: center;
+          gap: .2rem;
+
+          .icon {
+              width: 25px;
+          }
+         
+      }
+      .imgAG {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem;
+          gap: 1rem;
+          .gpAp {
+              width: 300px;
+          }
+      }
+      
+  }
+img{
+  background-color: #fff;
+}
+  .footerFlex {
+      padding: 2rem;
+      display: flex;
+      justify-content:space-evenly;
+  }
+  .innerIcon {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      .icon {
+          width: 50px;
+          height: 50px;
+          &:last-child {
+              width: 100px;
+              height: 90px;
+          }
+      }
+
+  }
+
+
+  .iconText {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .icon {
+          width: 50px;
+          color: white;
+      }
+  }
+  
+
+  .lastCopy {
+      padding: 1rem;
+      margin-top: 5rem;
+      display: flex;
+      justify-content: center;
+      color: white;
+      background: rgba(183, 176, 176, 0.6);
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .footerFlex{
+  
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      
+  }
+  
+}
    
     

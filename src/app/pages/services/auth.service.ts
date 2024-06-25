@@ -19,9 +19,7 @@
       return this.isLoggedInSubject.asObservable();
     }
 
-    // login(): void {
-    //   this.isLoggedInSubject.next(true);
-    // }
+  
 
     logout(): void {
      
@@ -38,43 +36,7 @@
     }
     
 
-    //  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
-    // isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
-    // private userProfileSubject = new BehaviorSubject<any>({});
-    // userProfile$: Observable<any> = this.userProfileSubject.asObservable();
-
-    // constructor(private http: HttpClient) { }
-
-    // login() {
     
-    //   this.isLoggedInSubject.next(true);
-    // }
-
-    // logout() {
-      
-    //   this.isLoggedInSubject.next(false);
-    //   this.userProfileSubject.next({});
-    // }
-
-    // fetchUserProfile() {
-    //   this.http.get<any>('http://10.10.10.100/profile')
-    //     .subscribe(
-    //       (profileData) => {
-    //         this.userProfileSubject.next(profileData);
-    //       },
-    //       (error) => {
-    //         console.error('Error fetching profile:', error);
-    //       }
-    //     );
-    // }
-
-    // get isLoggedIn() {
-    //   return this.isLoggedInSubject.value;
-    // }
-
-    // get userProfile() {
-    //   return this.userProfileSubject.value;
-    // }
 
 
 

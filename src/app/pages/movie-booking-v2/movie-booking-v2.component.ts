@@ -1,15 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, model,ChangeDetectionStrategy,EventEmitter, Output,OnInit } from '@angular/core';
 import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
-import { Router } from 'express';
-import { DataServiceService } from '../services/Data Service/data-service.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
-import{SignupDialogComponent} from '../signup-dialog/signup-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
@@ -54,7 +51,7 @@ export class MovieBookingV2Component implements OnInit {
     });
   }
 
-  @Output() bookingConfirmed: EventEmitter<{ seats: string[], totalAmount: number, date: string, time: string }> = new EventEmitter();
+  @Output() bookingConfirmed: EventEmitter<{ seats: string[], totalAmount: number, date: Date, time: string, screen:string }> = new EventEmitter();
 
 
   confirmBooking() {
@@ -62,9 +59,7 @@ export class MovieBookingV2Component implements OnInit {
       const config = new MatSnackBarConfig();
       config.verticalPosition = 'bottom';
       this.snackBar.open('Please select date, time and screen.', 'Close', config);
-      //  {
-      //   duration: 3000,
-      // });
+
       return;
     }
 
@@ -74,8 +69,9 @@ export class MovieBookingV2Component implements OnInit {
         this.bookingConfirmed.emit({
           seats: this.seatsSelected,
           totalAmount: this.totalAmount,
-          date: this.selectedDateSlot,
-          time: this.selectedTimeSlot
+          date: new Date(this.selectedDateSlot),
+          time: this.selectedTimeSlot,
+          screen: this.selectedScreen
         });
       } else {
         
@@ -96,17 +92,7 @@ export class MovieBookingV2Component implements OnInit {
       }
     });
   }
-  openSignDialog(): void {
-    const dialogRef = this.dialog.open(SignupDialogComponent, {
-      width: '250px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) { 
-        this.authService.isLoggedIn(); 
-      }
-    });
-  }
+ 
 
   isLoggedIn: boolean = false;
 

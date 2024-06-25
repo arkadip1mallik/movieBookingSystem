@@ -1,37 +1,38 @@
-import { Component, inject ,EventEmitter, Output} from '@angular/core';
-import { MatDialog, MatDialogActions, MatDialogContent } from '@angular/material/dialog';
-import { PaymentComponent } from '../payment/payment.component';
+import { Component, Inject ,EventEmitter, Output} from '@angular/core';
+import { MatDialog, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-now',
   standalone: true,
-  imports: [MatDialogContent,MatDialogActions],
+  imports: [MatDialogContent,MatDialogActions,CommonModule],
   templateUrl: './book-now.component.html',
   styleUrl: './book-now.component.scss'
 })
 export class BookNowComponent {
-  constructor(private dialog: MatDialog){}
-  openPayment(){
-    this.openDialog('450ms','450ms');
+  selectedDate: Date | null = null; 
+  selectedTime: string = '';
+  selectedScreen: string = '';
+  constructor(private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<BookNowComponent>,private router:Router){
+    console.log(data);
+    this.selectedDate = this.data.date;
+    this.selectedTime = this.data.time;
+    this.selectedScreen = this.data.screen;
   }
-  seatsSelected: string[] = [];
-  totalAmount: number = 0;
+  confirmBooking(): void {
+   this.router.navigate(['/bookingHist']);
+    this.dialogRef.close('confirmed');
+  }
+
+  cancelBooking(): void {
+   
+    this.dialogRef.close();
+  }
+  
 close(){
   this.dialog.closeAll();
 }
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(PaymentComponent, {
-      width: '800px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-     
-        }); 
-        // this.confirmBooking();
-  
-} 
-// @Output() bookingConfirmed: EventEmitter<{ seats: string[], totalAmount: number }> = new EventEmitter();
-// confirmBooking() {
  
-//   this.bookingConfirmed.emit({ seats: this.seatsSelected, totalAmount: this.totalAmount });
-// }
 }
