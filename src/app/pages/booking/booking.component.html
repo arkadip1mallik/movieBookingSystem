@@ -1,5 +1,5 @@
 <app-movie-booking-v2 (bookingConfirmed)="onBookingConfirmed($event)"></app-movie-booking-v2>
-
+<div class="book">
 <div *ngIf="seatsSelected.length > 0">
   <h3>Selected Seats:</h3>
   <ul>
@@ -9,5 +9,7 @@
   <p *ngIf="selectedTime">Selected Time: {{ selectedTime }}</p>
   <p *ngIf="selectedScreen">Selected Screen: {{ selectedScreen }}</p>
   <p>Total Amount: Rs.{{ totalAmount }}</p>
+  
   <button (click)="proceedToPayment()">Proceed to Payment</button> <br> <br><br>
+</div>
 </div>

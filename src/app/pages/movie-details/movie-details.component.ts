@@ -3,6 +3,18 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
 
+
+interface Movie {
+  id:string;
+  title: string;
+  description:string;
+  director:string;
+  duration:string;
+  rating: string;
+  imageUrl: string;
+}
+
+
 @Component({
   selector: 'app-movie-details',
   standalone: true,
@@ -11,6 +23,18 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './movie-details.component.scss',
 })
 export class MovieDetailsComponent {
+  title = 'movie-app';
+  featuredMovie: Movie = {
+    id:'16',
+    title: 'Kalki 2898AD',
+    description:'indeed a good movie',
+    director:'',
+    duration:'',
+    rating: '4.5',
+    
+    imageUrl: 'images/kalki28.png'
+  };
+
   movies = [
     {
       id: '1',
@@ -21,7 +45,7 @@ export class MovieDetailsComponent {
       duration: '2hr 23min',
       rating: '9.2/10',
       imageUrl: 'images/chandu champion.png',
-      // showDetails: false,
+     
     },
     {
       id: '2',
@@ -32,7 +56,7 @@ export class MovieDetailsComponent {
       duration: '1 hr 55min',
       rating: '7/10',
       imageUrl: 'images/badboys.jpg',
-      // showDetails: false,
+      
     },
     {
       id: '3',
@@ -43,7 +67,7 @@ export class MovieDetailsComponent {
       duration: '2hr 3 min',
       imageUrl: 'images/munjya.jpg',
       rating: '8.2/10',
-      // showDetails: false,
+     
     },
     {
       id: '4',
@@ -53,8 +77,8 @@ export class MovieDetailsComponent {
       director: 'Nag Ashwin',
       duration: '3hr 1min',
       imageUrl: 'images/kalki.png',
-      rating: '779.2k are interested',
-      // showDetails: false,
+      rating: '4.5',
+    
     },
     {
       id: '5',
@@ -63,8 +87,8 @@ export class MovieDetailsComponent {
       director: 'Kaushik Ganguly',
       duration: '2hr 6min',
       rating: '8.2/10',
-      imageUrl: 'images/ajogyo.png',
-      showDetails: false,
+      imageUrl: 'images/ajagya.png',
+     
     },
     {
       id: '6',
@@ -73,12 +97,13 @@ export class MovieDetailsComponent {
       director: 'Kelsey Mann',
       duration: '1hr 36min',
       rating: '8/10',
-      imageUrl: 'images/inside out2.jpg',
-      showDetails: false,
-    },
-  ];
+      imageUrl: 'images/insiout.png',
+     
+    }
+  ]
+
   movie = [
-    {
+        {
       id: '7',
       title: 'Jaat & Juliet 3',
       description:
@@ -96,9 +121,9 @@ export class MovieDetailsComponent {
         " Gru welcomes a new member to the family, Gru Jr., who's intent on tormenting his dad. However, their peaceful existence crashes when criminal mastermind Maxime Le Mal escapes from prison and vows revenge against Gru.",
       director: 'Chris Renaud & Patrick Delage',
       duration: 'NA',
-      imageUrl: 'images/Despicable.jpg',
+      imageUrl: 'images/desci.png',
       rating: '25.7K are interested',
-      // showDetails: false,
+      
     },
     {
       id: '9',
@@ -107,8 +132,8 @@ export class MovieDetailsComponent {
       director: 'Sudha Kongara Prasad',
       duration: 'NA',
       rating: '9.1K are interested',
-      imageUrl: 'images/Sarfira.jpg',
-      // showDetails: false,
+      imageUrl: 'images/sar.png',
+      
     },
     {
       id: '10',
@@ -117,8 +142,8 @@ export class MovieDetailsComponent {
       director: 'Nikkhil Advani',
       duration: 'NA',
       rating: '14.7K are interested',
-      imageUrl: 'images/vedaa.png',
-      // showDetails: false,
+      imageUrl: 'images/vee.png',
+     
     },
     {
       id: '11',
@@ -128,7 +153,7 @@ export class MovieDetailsComponent {
       duration: 'NA',
       rating: '15.5K are interested',
       imageUrl: 'images/quiet.jpg',
-      // showDetails: false,
+      
     },
   ];
   constructor(private router: Router) {}
@@ -136,6 +161,14 @@ export class MovieDetailsComponent {
     this.router.navigate(['/movie:id']);
   }
 }
+//   movies = [
+   
+//   ];
+//   movie = [
+
+//   ];
+  
+// }
 export const moviesData = [
   {
     id: '1',
@@ -165,8 +198,8 @@ export const moviesData = [
     director: 'Aditya Sarpotdar',
     duration: '2hr 3 min',
     imageUrl: 'images/munjya.jpg',
-    rating: 'R',
-    showDetails: false,
+    rating: '8.2/10',
+   
   },
   {
     id: '4',
@@ -177,7 +210,7 @@ export const moviesData = [
     duration: '3hr 1min',
     imageUrl: 'images/kalki.png',
     rating: '779.2k are interested',
-    // showDetails: false,
+    
   },
   {
     id: '5',
@@ -187,8 +220,7 @@ export const moviesData = [
     duration: '2hr 6min',
     rating: '8.2/10',
     imageUrl: 'images/ajogyo.png',
-    // showDetails: false,
-  },
+  }, 
   {
     id: '6',
     title: 'Inside Out 2',
@@ -197,7 +229,7 @@ export const moviesData = [
     duration: '1hr 36min',
     rating: '8/10',
     imageUrl: 'images/inside out2.jpg',
-    // showDetails: false,
+    
   },
   {
     id: '12',
@@ -207,7 +239,7 @@ export const moviesData = [
     duration: '1hr 40min',
     rating: '5/10',
     imageUrl: 'images/strange.jpg',
-   // showDetails: false,
+   
   },
   {
     id: '13',
@@ -217,7 +249,7 @@ export const moviesData = [
     duration: '2hr 32min',
     rating: '6.4/10',
     imageUrl: 'images/jnu.jpg',
-   // showDetails: false,
+  
   },
   {
     id: '14',
@@ -227,7 +259,7 @@ export const moviesData = [
     duration: '2hr 40min',
     rating: '9.3/10',
     imageUrl: 'images/rock.png',
-   // showDetails: false,
+
   },
 ];
 export const movieDatas = [
@@ -252,7 +284,7 @@ export const movieDatas = [
     imageUrl: 'images/Despicable.jpg',
     rating: '25.7k are interested',
     releasing:'3rd July, 2024',
-    // showDetails: false,
+   
   },
   {
     id: '9',
@@ -263,7 +295,7 @@ export const movieDatas = [
     rating: '9.1K are interested',
     imageUrl: 'images/Sarfira.jpg',
     releasing:'12th July, 2024',
-    //showDetails: false,
+   
   },
  {
   id: '10',
@@ -274,7 +306,7 @@ export const movieDatas = [
   rating: '14.7K are interested',
   imageUrl: 'images/vedaa.png',
   releasing:'12th July, 2024',
-  // showDetails: false,
+  
 },
 {
   id: '11',
@@ -285,7 +317,7 @@ export const movieDatas = [
   rating: '15.5K are interested',
   imageUrl: 'images/quiet.jpg',
   releasing:'28th June, 2024',
-  // showDetails: false,
+ 
 },
 {
   id: '15',
@@ -296,6 +328,6 @@ export const movieDatas = [
   rating: '2.4K are interested',
   imageUrl: 'images/godhra.png',
   releasing:'12th July, 2024',
-  // showDetails: false,
+  
 },
 ];

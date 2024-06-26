@@ -4,10 +4,10 @@
   <h6><b>Selected Seats:</b></h6>
   <ul>
     <b><li *ngFor="let seat of data.seats">{{ seat }}</li></b>
-    <p *ngIf="selectedDate">Selected Date: {{ selectedDate | date }}</p>
-    <p *ngIf="selectedTime">Selected Time: {{ selectedTime }}</p>
-    <p *ngIf="selectedScreen">Selected Screen: {{ selectedScreen }}</p>
   </ul>
+   <b> <p *ngIf="selectedDate">Selected Date: {{ selectedDate | date }}</p></b>
+  <b> <p *ngIf="selectedTime">Selected Time: {{ selectedTime }}</p></b>
+  <b><p *ngIf="selectedScreen">Selected Screen: {{ selectedScreen }}</p></b>
   <h6><b>Total Amount: Rs.{{ data.totalAmount }}</b></h6>
 </mat-dialog-content>
 <mat-dialog-actions>

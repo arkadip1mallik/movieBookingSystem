@@ -24,7 +24,7 @@ export class MovieListComponent {
       duration: '2hr 40min',
       rating: '9.3/10',
       imageUrl: 'images/rock.png',
-     // showDetails: false,
+    
     },
 
     {
@@ -36,7 +36,7 @@ export class MovieListComponent {
       duration: '2hr 3 min',
       imageUrl: 'images/munjya.jpg',
       rating: '8.2/10',
-      // showDetails: false,
+     
     },
     {
       id: '4',
@@ -47,7 +47,7 @@ export class MovieListComponent {
       duration: '3hr 1min',
       imageUrl: 'images/kalki.png',
       rating: '779.2k are interested',
-      // showDetails: false,
+     
     },
     {
       id: '5',
@@ -57,7 +57,7 @@ export class MovieListComponent {
       duration: '2hr 6min',
       rating: '8.2/10',
       imageUrl: 'images/ajogyo.png',
-      //showDetails: false,
+     
     },
     {
       id: '2',
@@ -68,7 +68,7 @@ export class MovieListComponent {
       duration: '1 hr 55min',
       rating: '7/10',
       imageUrl: 'images/badboys.jpg',
-      // showDetails: false,
+     
     },
     {
       id: '6',
@@ -78,7 +78,7 @@ export class MovieListComponent {
       duration: '1hr 36min',
       rating: '8/10',
       imageUrl: 'images/inside out2.jpg',
-      // showDetails: false,
+     
     },
     {
       id: '12',
@@ -88,7 +88,7 @@ export class MovieListComponent {
       duration: '1hr 40min',
       rating: '5/10',
       imageUrl: 'images/strange.jpg',
-     // showDetails: false,
+     
     },
     {
       id: '13',
@@ -98,7 +98,7 @@ export class MovieListComponent {
       duration: '2hr 32min',
       rating: '6.4/10',
       imageUrl: 'images/jnu.jpg',
-     // showDetails: false,
+     
     },
 
     {
@@ -110,7 +110,7 @@ export class MovieListComponent {
       duration: '2hr 23min',
       rating: '9.2/10',
       imageUrl: 'images/chandu champion.png',
-      // showDetails: false,
+     
     },
   ];
   movie = [
@@ -134,7 +134,7 @@ export class MovieListComponent {
       duration: 'NA',
       imageUrl: 'images/Despicable.jpg',
       rating: '25.7K are interested',
-      // showDetails: false,
+      
     },
     {
       id: '9',
@@ -144,7 +144,7 @@ export class MovieListComponent {
       duration: 'NA',
       rating: '9.1K are interested',
       imageUrl: 'images/Sarfira.jpg',
-      // showDetails: false,
+      
     },
     {
       id: '10',
@@ -154,7 +154,7 @@ export class MovieListComponent {
       duration: 'NA',
       rating: '14.7K are interested',
       imageUrl: 'images/vedaa.png',
-      // showDetails: false,
+     
     },
     {
       id: '11',
@@ -164,7 +164,7 @@ export class MovieListComponent {
       duration: 'NA',
       rating: '15.5K are interested',
       imageUrl: 'images/quiet.jpg',
-      // showDetails: false,
+     
     },
     {
       id: '15',
@@ -174,7 +174,7 @@ export class MovieListComponent {
       duration: 'NA',
       rating: '2.4K are interested',
       imageUrl: 'images/godhra.png',
-      // showDetails: false,
+      
     },
   ];
   constructor(private router: Router) {}
@@ -213,8 +213,8 @@ export const moviesData = [
   director: 'Aditya Sarpotdar',
   duration: '2hr 3 min',
   imageUrl: 'images/munjya.jpg',
-  rating: 'R',
-  showDetails: false,
+  rating: '8.2/10',
+  
 },
 {
   id: '4',
@@ -225,7 +225,7 @@ export const moviesData = [
   duration: '3hr 1min',
   imageUrl: 'images/kalki.png',
   rating: '779.2k are interested',
-  // showDetails: false,
+  
 },
 {
   id: '5',
@@ -235,7 +235,7 @@ export const moviesData = [
   duration: '2hr 6min',
   rating: '8.2/10',
   imageUrl: 'images/ajogyo.png',
-  // showDetails: false,
+ 
 },
 {
   id: '6',
@@ -245,7 +245,7 @@ export const moviesData = [
   duration: '1hr 36min',
   rating: '8/10',
   imageUrl: 'images/inside out2.jpg',
-  // showDetails: false,
+  
 },
 {
   id: '12',
@@ -255,7 +255,7 @@ export const moviesData = [
   duration: '1hr 40min',
   rating: '5/10',
   imageUrl: 'images/strange.jpg',
- // showDetails: false,
+ 
 },
 {
   id: '13',
@@ -265,7 +265,7 @@ export const moviesData = [
   duration: '2hr 32min',
   rating: '6.4/10',
   imageUrl: 'images/jnu.jpg',
- // showDetails: false,
+
 },
 {
   id: '14',
@@ -275,7 +275,7 @@ export const moviesData = [
   duration: '2hr 40min',
   rating: '9.3/10',
   imageUrl: 'images/rock.png',
- // showDetails: false,
+
 },
 
 ];
@@ -301,7 +301,7 @@ export const movieDatas = [
   imageUrl: 'images/Despicable.jpg',
   rating: '25.7k are interested',
   releasing:'3rd July, 2024',
-  // showDetails: false,
+ 
 },
 {
   id: '9',
@@ -312,7 +312,7 @@ export const movieDatas = [
   rating: '9.1K are interested',
   imageUrl: 'images/Sarfira.jpg',
   releasing:'12th July, 2024',
-  //showDetails: false,
+ 
 },
 {
 id: '10',
@@ -323,7 +323,7 @@ duration: 'NA',
 rating: '14.7K are interested',
 imageUrl: 'images/vedaa.png',
 releasing:'12th July, 2024',
-// showDetails: false,
+
 },
 {
 id: '11',
@@ -334,7 +334,7 @@ duration: 'NA',
 rating: '15.5K are interested',
 imageUrl: 'images/quiet.jpg',
 releasing:'28th June, 2024',
-// showDetails: false,
+
 },
 ];
 

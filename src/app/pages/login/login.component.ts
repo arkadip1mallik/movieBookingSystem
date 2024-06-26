@@ -5,21 +5,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ChangeDetectionStrategy, signal } from '@angular/core';
 
 import {
-  FormControl,
+ 
   FormsModule,
   ReactiveFormsModule,
-  Validators,
+ 
 } from '@angular/forms';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 
-import { merge } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { DataServiceService } from '../services/Data Service/data-service.service';
 import { SigninService } from '../services/signIn Service/signin.service';
 import { AuthService } from '../services/auth.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
     private service: SigninService,
     private router: Router,
     private authService: AuthService,
-    private dialog: Dialog
+    private dialog: Dialog,
+    private snackBar: MatSnackBar,
   ) {}
 
   
@@ -65,13 +66,25 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.authService.login(this.library_id, this.password).subscribe(
       (userData) => {
+        console.log('success', userData);
         if (userData.status) {
                   this.router.navigate(['']);
-        
+
                   this.isLoggedIn = true;
                   localStorage.setItem('token', userData.token);
             this.authService.setUser(userData); 
-      }},
+      }else{
+      //   const config = new MatSnackBarConfig();
+      // config.verticalPosition = 'bottom';
+      // this.snackBar.open('Error with the connection.', 'Close', config);
+
+      // return;
+     
+        console.log("Internal error!");
+        alert("An error has occured please check the fields or else connection problem.");
+      
+      }
+    },
       (error) => {
         console.error('Login failed:', error);
         

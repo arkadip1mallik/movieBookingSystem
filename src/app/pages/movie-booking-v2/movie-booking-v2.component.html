@@ -1,3 +1,6 @@
+<br><div class="btn-1">
+    <button1 [routerLink]="['/']">Go Back</button1>
+  </div>
 <div class="movieBooking">
     <div class="imageM"> 
         <img src="images/selectbox.png" alt="selectbox">
@@ -6,7 +9,7 @@
         
         <div class="centerBook">
             
-            <h2> Please select Your seat</h2>
+            <h2> Please Select Your Seat</h2>
         <p>Total Seats Selected: {{ seatsSelected.length}}</p>
         <p>Total Amount: Rs. {{totalAmount}}</p>
         
@@ -39,9 +42,15 @@
 
         <div *ngFor="let row of rowId; let rowIndex = index">
             <div class="seats">
-                <span> {{row}}
-                    <button *ngFor="let col of column" [ngClass]="{'selected':seatsSelected.includes(row+col)}" (click)="seatToggling(row,col)">{{col}}</button>
-                </span>
+                <span>{{row}}
+                    <button *ngFor="let col of column"
+                            [ngClass]="{'selected': seatsSelected.includes(row+col), 'paid': paidSeats.includes(row+col)}"
+                            (click)="seatToggling(row, col)"
+                            [disabled]="paidSeats.includes(row+col)">
+                      {{col}}
+                    </button>
+                  </span>
+              
             </div>
         <div *ngIf="rowIndex === rowId.length - 1" class="confirmButton">
        <button (click)="confirmBooking()">Confirm Seat Booking</button>
@@ -51,5 +60,5 @@
         </div>
     
     </div>
-</div>
+</div><br>
 
