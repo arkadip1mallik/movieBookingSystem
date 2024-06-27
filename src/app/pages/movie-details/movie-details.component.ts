@@ -25,14 +25,14 @@ interface Movie {
 export class MovieDetailsComponent {
   title = 'movie-app';
   featuredMovie: Movie = {
-    id:'16',
-    title: 'Kalki 2898AD',
-    description:'indeed a good movie',
-    director:'',
-    duration:'',
-    rating: '4.5',
+    id:'4',
+    title: 'Kalki 2898 A.D.',
+    description:'When the world is taken over by darkness. A force will rise.',
+    director:'Nag Ashwin',
+    duration:'3hr 1min',
+    rating: '9/10',
     
-    imageUrl: 'images/kalki28.png'
+    imageUrl: 'images/kalk.png'
   };
 
   movies = [
@@ -71,13 +71,13 @@ export class MovieDetailsComponent {
     },
     {
       id: '4',
-      title: 'Kalki 2898 AD',
+      title: 'Kalki 2898 A.D.',
       description:
         ' When the world is taken over by darkness. A force will rise.',
       director: 'Nag Ashwin',
       duration: '3hr 1min',
       imageUrl: 'images/kalki.png',
-      rating: '4.5',
+      rating: '9/10',
     
     },
     {
@@ -147,7 +147,7 @@ export class MovieDetailsComponent {
     },
     {
       id: '11',
-      title: 'A Quiet Place - Day One',
+      title: 'A Quiet Place',
       description: 'Discover why our world went quiet.',
       director: 'John Krasinski',
       duration: 'NA',

@@ -42,7 +42,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
   
-  library_id: string = '';
+  Email: string = '';
   password: string = '';
   isLoggedIn: boolean = false;
   loginError: string = '';
@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   
+
   ngOnInit(): void {}
 
   
@@ -64,12 +65,11 @@ export class LoginComponent implements OnInit {
 
  
   login(): void {
-    this.authService.login(this.library_id, this.password).subscribe(
+    this.authService.login(this.Email, this.password).subscribe(
       (userData) => {
         console.log('success', userData);
         if (userData.status) {
                   this.router.navigate(['']);
-
                   this.isLoggedIn = true;
                   localStorage.setItem('token', userData.token);
             this.authService.setUser(userData); 

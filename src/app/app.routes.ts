@@ -1,7 +1,7 @@
 
 import { Routes } from '@angular/router';
 
-
+import { AuthGuard } from '../../src/app/pages/services/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
@@ -26,11 +26,13 @@ export const routes: Routes = [
    {
     path : 'login',
     component : LoginComponent,
+    
     children:[
         {
             path:'profile',
             component:ProfileComponent
         },
+      
     ]
    },
    {
@@ -65,9 +67,11 @@ export const routes: Routes = [
         
     ]
 },
+
 {
     path:'bookingHist',
-    component:BookingHistoryComponent
+    component:BookingHistoryComponent,
+    canActivate: [AuthGuard] 
 }, 
 
 

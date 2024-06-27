@@ -9,6 +9,7 @@ import { MatChip, MatChipSet } from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl,FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 export interface PeriodicElement {
   name: string;
@@ -46,6 +47,7 @@ export class BookingHistoryComponent {
   myControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
 
+  constructor(public authService: AuthService) { }
   ngOnInit():void  {
     this.showCompleted();
     this.showUpcoming();

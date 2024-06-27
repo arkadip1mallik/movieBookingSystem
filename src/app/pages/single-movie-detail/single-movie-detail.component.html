@@ -1,7 +1,7 @@
 <br><div class="btn-1">
   <button1 [routerLink]="['/']">Go Back</button1>
 </div>
-<div *ngIf="movie" class="movie-details">
+<div *ngIf="movie" class="movie-details" style="background-color: black; color: rgb(241, 232, 232);">
     <h2>{{ movie.title }}</h2>
     <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image">
     <p><br><h5>About The Movie: </h5><br>{{ movie.description }}</p>

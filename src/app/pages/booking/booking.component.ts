@@ -29,7 +29,7 @@ export class BookingComponent implements OnInit{
     this.selectedTime = eventData.time;
     this.selectedScreen = eventData.screen;
   }
-
+     
   proceedToPayment():void {
       this.openDialog('450ms', '450ms', this.seatsSelected, this.totalAmount,this.selectedDate,this.selectedTime,this.selectedScreen);
   }

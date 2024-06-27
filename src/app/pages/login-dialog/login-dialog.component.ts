@@ -22,7 +22,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginDialogComponent {
   
  
-  library_id:string='';
+  email:string='';
   password:string ='';
   loginError: string = '';
   constructor(private service: SigninService, private router: Router,private dialog: MatDialog, public dialogRef: MatDialogRef<LoginDialogComponent>,
@@ -40,7 +40,7 @@ export class LoginDialogComponent {
       isLoggedIn: boolean = false;
       
       login(): void {
-        this.authService.login(this.library_id, this.password).subscribe(
+        this.authService.login(this.email, this.password).subscribe(
           (userData) => {
             if (userData.status) {
                       this.router.navigate(['booking']);

@@ -35,30 +35,35 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
  
-  student_library_id:string ='';
-  name:string ='';
   email:string ='';
+  mobile:string= '';
+  name:string ='';
   password:string='';
+  confirmPassword:string='';
 
   constructor(private service: SignupService, private router: Router){}
 
   signup():void{
     const credentials ={
-      student_library_id : this.student_library_id,
       name : this.name,
       email : this.email,
-      password : this.password,
+      mobile:this.mobile,
+     password : this.password,
+     confirmPassword:this.confirmPassword,
     };
     console.log('Credentials',credentials);
     this.service.getSignin(credentials).subscribe((success)=>{
-      console.log('success', success);
-      if(success.status){
-        this.router.navigate(['login']);
-      }
-      else{
-        console.log("Internal error!");
-        alert("An error occured while creating user.");
-      }
+      
+        console.log('success', success);
+        if(success.status){
+          this.router.navigate(['login']);
+        }
+        else{
+          console.log("Internal error!");
+          alert("An error occured while creating user.");
+        }
+     
+  
     })
   }
 }

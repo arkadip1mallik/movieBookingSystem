@@ -22,7 +22,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
     RouterLink,
     CommonModule,
     FormsModule,
-  
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,

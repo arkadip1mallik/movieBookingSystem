@@ -8,10 +8,10 @@
     private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private userData = new BehaviorSubject<any>(null);
     constructor(private http: HttpClient) { }
-    private baseUrl = 'http://10.10.10.100/web/authentication/signin'; 
-    login(library_id: string, password: string): Observable<any> {
+    private baseUrl = 'http://10.10.10.136/api/login'; 
+    login(email: string, password: string): Observable<any> {
     
-      return this.http.post<any>(`${this.baseUrl}`, { library_id, password });
+      return this.http.post<any>(`${this.baseUrl}`, { email, password });
       
     }
 
