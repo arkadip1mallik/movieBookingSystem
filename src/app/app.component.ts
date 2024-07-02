@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
 
-import { AuthService } from './pages/services/auth.service';
+import { AuthService } from './pages/services/auth Service/auth.service';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 @Component({
@@ -49,8 +49,8 @@ export class AppComponent {
       value: 'Test@',
     },
   ];
-
-  constructor(private router: Router,private authService: AuthService) {
+  showProfileDetails = false;
+  constructor(private router: Router,public authService: AuthService) {
     this.selectedState = 'Test@'
 
   }
@@ -86,6 +86,7 @@ export class AppComponent {
   logout() {
     this.authService.logout();
     this.showProfileDropdown = false;
+    this.router.navigateByUrl('login');
   }
 
   showProfileSection: boolean = false;

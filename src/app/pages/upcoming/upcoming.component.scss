@@ -3,8 +3,9 @@
     margin: 0 auto; 
     padding: 20px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: #161414;
     margin-top: 5px;
+    color: white;
 
     
     .button{
@@ -67,4 +68,20 @@
     border-radius: 8px;
     outline: none;
     border: 1px solid grey;
+  }
+  @media (max-width: 768px) {
+    .movie-details {
+        padding: 10px;
+    }
+  
+    button {
+        margin-left: 150px;
+        margin-bottom: 10px;
+        
+    }
+  
+    button1 {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
   }

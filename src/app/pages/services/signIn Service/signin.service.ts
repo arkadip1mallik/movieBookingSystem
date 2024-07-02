@@ -15,7 +15,9 @@ export class SigninService {
  login(){
    this._isLoggedIn = true;
  }
-
+ adminLogin(){
+  this._isLoggedIn = true;
+}
  logout(): Observable<boolean> {
    return this.openConfirmation().pipe(
      switchMap(result => {
@@ -47,7 +49,14 @@ export class SigninService {
   getSignin(body:any): Observable<any>{
   
     return this.http.post(
-      'http://10.10.10.136/api/login',
+      'http://10.10.10.139/api/login',
+      body
+    );
+  }
+  getAdminSignin(body:any): Observable<any>{
+  
+    return this.http.post(
+      'http://10.10.10.139/api/admin_login',
       body
     );
   }

@@ -35,11 +35,12 @@ export class BookNowComponent {
   confirmBooking(): void {
     this.bookingService
       .bookSeats(
-        this.data.seats,
+        this.data.movieId ,
         this.data.date,
         this.data.time,
         this.data.screen,
-        this.data.totalAmount
+        this.data.seats,
+        this.data.totalAmount,
       )
       .subscribe(
         (response) => {

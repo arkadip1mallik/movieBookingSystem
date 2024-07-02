@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
+import { MovieService } from '../services/Movie Service/movie.service';
+import { FormsModule, NgModel } from '@angular/forms';
 
 
 interface Movie {
@@ -18,11 +20,11 @@ interface Movie {
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, MatCardModule, RouterLink],
+  imports: [CommonModule, MatCardModule, RouterLink,FormsModule],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.scss',
 })
-export class MovieDetailsComponent {
+export class MovieDetailsComponent{
   title = 'movie-app';
   featuredMovie: Movie = {
     id:'4',
@@ -34,7 +36,18 @@ export class MovieDetailsComponent {
     
     imageUrl: 'images/kalk.png'
   };
+  searchTerm: string = '';
+  searchResults: Movie[] = [];
+  selectedMovie: Movie | null = null;
+  searchMovies(): void {
+    this.searchResults = this.movieService.searchMovies(this.searchTerm);
+    this.selectedMovie = null;
+  }
 
+  selectMovie(movie: Movie): void {
+    this.selectedMovie = movie;
+  }
+ 
   movies = [
     {
       id: '1',
@@ -156,19 +169,12 @@ export class MovieDetailsComponent {
       
     },
   ];
-  constructor(private router: Router) {}
+  constructor(private router: Router,private movieService: MovieService) {}
   toggleDetails(movie: any) {
     this.router.navigate(['/movie:id']);
   }
 }
-//   movies = [
-   
-//   ];
-//   movie = [
 
-//   ];
-  
-// }
 export const moviesData = [
   {
     id: '1',

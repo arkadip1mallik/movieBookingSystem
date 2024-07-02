@@ -1,0 +1,26 @@
+*{
+    color: white;
+    background-color: black;
+    button{
+        background-color: black;
+    }
+   
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  nav ul li:hover {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: rgb(45, 209, 201);
+  }
+  a:hover{
+    background-color: rgb(111, 45, 197);
+  }

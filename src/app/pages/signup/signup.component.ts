@@ -52,7 +52,7 @@ export class SignupComponent {
      confirmPassword:this.confirmPassword,
     };
     console.log('Credentials',credentials);
-    this.service.getSignin(credentials).subscribe((success)=>{
+    this.service.getSignup(credentials).subscribe((success)=>{
       
         console.log('success', success);
         if(success.status){

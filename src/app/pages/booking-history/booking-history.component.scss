@@ -27,3 +27,21 @@
   }
   
 }
+
+
+
+@media (max-width: 768px) {
+  .example-container {
+    flex-direction: column;
+  }
+
+  .firstDrawer {
+    width: 100%;
+  }
+
+  .secondDrawer {
+    width: 100%;
+    padding: 10px;
+    padding-right: 100px;
+  }
+}

@@ -5,6 +5,8 @@ import { Router, RouterLink } from '@angular/router';
 import {ChangeDetectionStrategy, } from '@angular/core';
 
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { MovieService } from '../services/Movie Service/movie.service';
+import { FormsModule } from '@angular/forms';
 
 interface Movie {
   id:string;
@@ -19,12 +21,23 @@ interface Movie {
   selector: 'app-movie-list',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [CommonModule, MatCardModule, RouterLink ],
+  imports: [CommonModule, MatCardModule, RouterLink,FormsModule ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })
 export class MovieListComponent {
+  searchTerm: string = '';
+  searchResults: Movie[] = [];
+  selectedMovie: Movie | null = null;
+  searchMovies(): void {
+    this.searchResults = this.movieService.searchMovies(this.searchTerm);
+    this.selectedMovie = null;
+  }
+
+  selectMovie(movie: Movie): void {
+    this.selectedMovie = movie;
+  }
   movies = [
     {
       id: '1',
@@ -146,19 +159,12 @@ export class MovieListComponent {
       
     },
   ];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private movieService:MovieService) {}
   toggleDetails(movie: any) {
     this.router.navigate(['/movie:id']);
   }
 }
-//   movies = [
-   
-//   ];
-//   movie = [
 
-//   ];
-  
-// }
 export const moviesData = [
   {
     id: '1',

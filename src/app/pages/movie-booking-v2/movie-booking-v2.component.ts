@@ -4,12 +4,12 @@ import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth Service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-
+import { BookingService } from '../services/Booking Service/booking.service';
 
 
 @Component({
@@ -28,28 +28,28 @@ export class MovieBookingV2Component implements OnInit {
   totalAmount: number = 0;
   selectedDateSlot: string = '';
   selectedTimeSlot: string = '';
-  dateSlots: string[] = ['2024-06-28', '2024-06-29', '2024-06-30','2024-07-01','2024-07-02','2024-07-03']; 
+  dateSlots: string[] = ['2024-07-03', '2024-07-04', '2024-07-05','2024-07-06','2024-07-07','2024-07-08']; 
   timeSlots: string[] = ['11:00 AM', '2:00 PM', '5:00 PM','8:00 PM']
   selectedScreen: string = '';
   screens: string[] = ['Screen 1', 'Screen 2', 'Screen 3'];
-  paidSeats: string[] = [];
+  paidSeats: string[] = ['A1','A2', 'B2','B3', 'C3','C4','A5','A6','B8','B9','D5','D6','E10','E9','F7','F8','G1','G2','G3','G4','H6','H7'];
   paymentCompleted: boolean = false;
-  
-  seatToggling(rowId:string,column:number){
-    const Seat = `${rowId}${column}`;
-    const index = this.seatsSelected.indexOf(Seat);
-    if (this.paidSeats.includes(Seat)) {
-      return;
-    }
-    if(index>-1){
-      this.seatsSelected.splice(index,1);
-      this.totalAmount -=this.perSeatPrice;
-    }else{
-      this.seatsSelected.push(Seat);
-      this.totalAmount += this.perSeatPrice;
-    }
+  movieId: string = ''; 
+  // seatToggling(rowId:string,column:number){
+  //   const Seat = `${rowId}${column}`;
+  //   const index = this.seatsSelected.indexOf(Seat);
+  //   if (this.paidSeats.includes(Seat)) {
+  //     return;
+  //   }
+  //   if(index>-1){
+  //     this.seatsSelected.splice(index,1);
+  //     this.totalAmount -=this.perSeatPrice;
+  //   }else{
+  //     this.seatsSelected.push(Seat);
+  //     this.totalAmount += this.perSeatPrice;
+  //   }
 
-  }
+  // }
 
   ngOnInit(): void {
     const state = window.history.state;
@@ -59,9 +59,37 @@ export class MovieBookingV2Component implements OnInit {
       this.selectedTimeSlot = state.time;
       this.selectedScreen = state.screen;
     }
+
+    if (this.selectedDateSlot && this.selectedTimeSlot && this.selectedScreen) {
+      this.fetchPaidSeats();
+    }
+  }
+
+  fetchPaidSeats() {
+    this.bookingService.getPaidSeats(this.movieId, this.selectedDateSlot, this.selectedTimeSlot, this.selectedScreen)
+      .subscribe((response) => {
+        this.paidSeats = response.paidSeats || [];
+      });
+  }
+
+  seatToggling(rowId: string, column: number) {
+    const seat = `${rowId}${column}`;
+    const index = this.seatsSelected.indexOf(seat);
+
+    if (this.paidSeats.includes(seat)) {
+      return;
+    }
+
+    if (index > -1) {
+      this.seatsSelected.splice(index, 1);
+      this.totalAmount -= this.perSeatPrice;
+    } else {
+      this.seatsSelected.push(seat);
+      this.totalAmount += this.perSeatPrice;
+    }
   }
   
-  constructor(private authService: AuthService, private snackBar: MatSnackBar,  private dialog: MatDialog,private router:Router,private route: ActivatedRoute) { 
+  constructor(private authService: AuthService, private snackBar: MatSnackBar,  private dialog: MatDialog,private router:Router,private route: ActivatedRoute,private bookingService: BookingService) { 
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
     });
@@ -123,11 +151,12 @@ export class MovieBookingV2Component implements OnInit {
         if (loggedIn) {
          
           this.bookingConfirmed.emit({
-            seats: this.seatsSelected,
-            totalAmount: this.totalAmount,
+            
             date: new Date(this.selectedDateSlot),
             time: this.selectedTimeSlot,
-            screen: this.selectedScreen
+            screen: this.selectedScreen,
+            seats: this.seatsSelected,
+            totalAmount: this.totalAmount,
           });
         } else {
           
@@ -163,11 +192,12 @@ export class MovieBookingV2Component implements OnInit {
   storeBookingHistory() {
     
     const booking = {
-      seats: this.seatsSelected,
+      movieId: this.movieId,
       date: this.selectedDateSlot,
-      time: this.selectedTimeSlot,
       screen: this.selectedScreen,
-      totalAmount: this.totalAmount
+      seats: this.seatsSelected,
+      time: this.selectedTimeSlot,
+      totalAmount: this.totalAmount,
     };
    
     localStorage.setItem('bookingHistory', JSON.stringify(booking));

@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { DataServiceService } from '../services/Data Service/data-service.service';
 import { SigninService } from '../services/signIn Service/signin.service';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth Service/auth.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
@@ -74,11 +74,7 @@ export class LoginComponent implements OnInit {
                   localStorage.setItem('token', userData.token);
             this.authService.setUser(userData); 
       }else{
-      //   const config = new MatSnackBarConfig();
-      // config.verticalPosition = 'bottom';
-      // this.snackBar.open('Error with the connection.', 'Close', config);
-
-      // return;
+        localStorage.clear();
      
         console.log("Internal error!");
         alert("An error has occured please check the fields or else connection problem.");
@@ -91,4 +87,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  logout(): void {
+    localStorage.removeItem('token');
+    
+  }
+  
 }

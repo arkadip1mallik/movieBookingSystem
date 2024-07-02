@@ -1,0 +1,51 @@
+<div class="btn-1">
+    <button routerLink="/adminDashboard">Go Back</button>
+</div>
+<div class="btn" style="margin-left: 1500px;">
+    <button routerLink="/admin/movies/edit/:id">Edit Movie</button><br><br>
+    <button routerLink="/admin/movies/delete/:id">Delete Movie</button>
+</div>
+<div class="container">
+    <h2>Add Movies</h2>
+
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" formControlName="title" />
+      </div><br>
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" formControlName="genre" />
+      </div><br>
+      <div class="form-group">
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" formControlName="duartion" />
+      </div><br>
+      <div class="form-group">
+        <label for="releaseDate">Release Date:</label>
+        <input type="date" id="releaseDate" formControlName="releaseDate" />
+      </div><br>
+      <div class="form-group">
+        <label for="director">Director:</label>
+        <input type="text" id="director" formControlName="director" />
+      </div><br>
+      <div class="form-group">
+        <label for="showtimes">Showtimes:</label>
+        <input type="time" id="showtimes" formControlName="showtimes" />
+      </div><br>
+      <div class="form-group">
+        <label for="show_start_date">Start Date:</label>
+        <input type="date" id="show_start_date" formControlName="show_start_date" />
+      </div><br>
+      <div class="form-group">
+        <label for="show_end_date">End Date:</label>
+        <input type="date" id="show_end_date" formControlName="show_end_date" />
+      </div><br>
+      <div class="form-group">
+        <label for="seat_price">Seat Price:</label>
+        <input type="number" id="seat_price" formControlName="seat_price" />
+      </div><br>
+      <button type="submit">Add Movie</button>
+    </form>
+  </div><br><br>
+  

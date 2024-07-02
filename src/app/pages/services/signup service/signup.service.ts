@@ -9,9 +9,9 @@ export class SignupService {
 
   constructor(private http: HttpClient) { }
 
-  getSignin(body:any): Observable<any>{
+  getSignup(body:any): Observable<any>{
     return this.http.post(
-      'http://10.10.10.136/api/users',
+      'http://10.10.10.139/api/users',
       body
     );
   }

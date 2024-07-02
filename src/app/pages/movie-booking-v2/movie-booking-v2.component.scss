@@ -89,6 +89,21 @@ button1:hover {
   outline: none;
   border: 1px solid grey;
 }
+.available-seat {
+  background-color: #4caf50;
+  color: white;
+}
+
+.booked-seat {
+  background-color: #f44336;
+  color: white;
+  cursor: not-allowed;
+}
+
+.selected-seat {
+  background-color: #ffeb3b;
+  color: black;
+}
 @media (max-width: 768px) {
   .overAll {
     width: 90%;

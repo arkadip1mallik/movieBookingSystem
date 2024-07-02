@@ -9,7 +9,7 @@ import { MatChip, MatChipSet } from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl,FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth Service/auth.service';
 
 export interface PeriodicElement {
   name: string;

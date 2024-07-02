@@ -3,18 +3,18 @@
       <div class="col-md-6">
       <div class="card">
         <div class="text-center">
-         <div class="img">
-          <img src="images/Login.png" alt="login.png">
+         <div class="img" style="margin-left: 100px;">
+          <!-- <img src="images/Login.png" alt="login.png"> -->
+           <h1 style="width: max-content;">Hello, Users.</h1> 
+           <h6 >Welcome back.</h6>
+           <p style="width: max-content;">Please enter email & password.</p>
          </div>
 
+
           <div class="loginForm">
-          <h1>Login</h1>
-          <h6>Please enter email & password !!</h6>
-
-
-
-
-  <form (ngSubmit)="login()">
+          <h1 style="margin-left: 300px;">Login</h1>
+          
+        <form (ngSubmit)="login()" style="margin-left: 300px;">
     <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
     <div>
       <label for="email">Email<span>*</span>:</label>
@@ -27,7 +27,8 @@
     <div>
       <button type="submit" class="btn btn-primary mb-2">Login</button>
     </div><br>
-    <a routerLink="/signup">Not Registered? Click to SignUp</a>
+    <a routerLink="/signup">Not Registered? Click to SignUp</a><br>
+    <a routerLink="/adminLogin" style="color: red;">Sign In if you are the Admin</a>
   </form>
         </div>
         </div>

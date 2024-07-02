@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+     
+        
+      <li class="nav-item">
+        <a class="nav-link" routerLink="admin/movies">Movie List</a>
+      </li>
+  
+      <li class="nav-item">
+        <a class="nav-link" routerLink="admin/movies/new">Add Movies</a>
+      </li>
+  
+      <li class="nav-item">
+        <a class="nav-link" routerLink="admin/movies/edit/:id">Edit Movies</a>
+      </li>
+    
+        
+    
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+    <h2>{{ isEditing ? 'Edit Movie' : 'Add New Movie' }}</h2>
+    <form [formGroup]="movieForm" (ngSubmit)="saveMovie()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" formControlName="title" />
+      </div><br>
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" formControlName="genre" />
+      </div><br>
+      <div class="form-group">
+        <label for="duration">Duration:</label>
+        <input type="text" id="duartion" formControlName="duartion" />
+      </div><br>
+      <div class="form-group">
+        <label for="releaseDate">Release Date:</label>
+        <input type="text" id="releaseDate" formControlName="releaseDate" />
+      </div><br>
+      <div class="form-group">
+        <label for="director">Director:</label>
+        <input type="text" id="director" formControlName="director" />
+      </div><br>
+      <div class="form-group">
+        <label for="showtimes">Showtimes:</label>
+        <input type="text" id="showtimes" formControlName="showtimes" />
+      </div><br>
+      <div class="form-group">
+        <label for="show_start_date">Start Date:</label>
+        <input type="text" id="show_start_date" formControlName="show_start_date" />
+      </div><br>
+      <div class="form-group">
+        <label for="show_end_date">End Date:</label>
+        <input type="text" id="show_end_date" formControlName="show_end_date" />
+      </div><br>
+      <div class="form-group">
+        <label for="seat_price">Seat Price:</label>
+        <input type="number" id="seat_price" formControlName="seat_price" />
+      </div><br>
+      <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+    </form>
+  </div><br><br>
+  

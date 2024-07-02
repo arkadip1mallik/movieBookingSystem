@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 
 import { SigninService } from '../services/signIn Service/signin.service';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth Service/auth.service';
 
 @Component({
   selector: 'app-login-dialog',

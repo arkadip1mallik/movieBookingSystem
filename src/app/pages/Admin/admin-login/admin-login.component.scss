@@ -1,0 +1,48 @@
+
+.card{
+    border: none;
+    width: 500px;
+    position: relative;
+    bottom: 30%;
+    left: 90%;
+    margin-bottom: 70px;
+    margin-top: 200px;
+    transform: translate(-50%,50%);
+    background: hsla(205, 55%, 36%, 1%);
+   
+  
+  }
+  
+  .text-center {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   
+    
+    .loginForm {
+        width: 140%;
+        margin-left: 200px;
+        margin-right: 100px;
+    }
+  }
+  img{
+    width: 95%;
+    position:relative;
+    margin-right: 450px;
+    margin-left: 10px;
+    
+    padding-top: 1rem;
+  }
+  span{
+    color: red;
+  }
+  button{
+    background-color: rgb(221, 11, 81);
+    color: white;
+  }
+  button:hover{
+       background-color: rgb(111, 33, 201);
+  }
+ 

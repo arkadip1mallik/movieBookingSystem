@@ -1,0 +1,31 @@
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <mat-nav-list>
+        <mat-list-item routerLink="/adminDashboard">Dashboard</mat-list-item>
+        <mat-list-item routerLink="/admin/movies/add">Add Movie</mat-list-item>
+        <mat-list-item routerLink="/admin/movies/edit/:id">Edit Movie</mat-list-item>
+        <mat-list-item routerLink="/admin/movies/delete/:id">Delete Movie</mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+          
+<div class="admin-dashboard">
+    <h2>Admin Dashboard</h2>
+
+    <div class="movie-list">
+      <h3>Movies</h3>
+      <ul>
+        <li *ngFor="let movie of movies">
+          <p>{{ movie.title }}</p>
+          <button (click)="onEdit(movie)">Edit</button>
+          <button (click)="onDelete(movie.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  

@@ -1,24 +1,26 @@
 
 import { Routes } from '@angular/router';
-
-import { AuthGuard } from '../../src/app/pages/services/auth.guard';
+import {authGuard} from '../app/pages/guard/auth.guard'
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
-
-
+import {MovieListAdminComponent} from './pages/Admin/movieListAdmin/movie-list-admin/movie-list-admin.component'
+import {MovieFormComponent} from './pages/Admin/movieListAdmin/movie-form/movie-form.component'
 import { ContactComponent } from './pages/contact/contact.component';
 import { MovieBookingV2Component } from './pages/movie-booking-v2/movie-booking-v2.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { BookNowComponent } from './pages/book-now/book-now.component';
 import { BookingHistoryComponent } from './pages/booking-history/booking-history.component';
-
+import {AdminLoginComponent} from './pages/Admin/admin-login/admin-login.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { SingleMovieDetailComponent } from './pages/single-movie-detail/single-movie-detail.component';
 import { UpcomingComponent } from './pages/upcoming/upcoming.component';
 import { LoginDialogComponent } from './pages/login-dialog/login-dialog.component';
-
+import {AdmindashboardComponent} from './pages/Admin/admindashboard/admindashboard.component';
+import {AddComponent} from '../app/pages/Admin/add/add.component';
+import {EditComponent} from '../app/pages/Admin/edit/edit.component';
+import {DeleteComponent} from '../app/pages/Admin/delete/delete.component';
 export const routes: Routes = [
    { path : '',
     component:MovieDetailsComponent,
@@ -71,7 +73,7 @@ export const routes: Routes = [
 {
     path:'bookingHist',
     component:BookingHistoryComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [authGuard] 
 }, 
 
 
@@ -85,6 +87,34 @@ export const routes: Routes = [
     path: 'loginDialog',
     component:LoginDialogComponent,
 },
-
+{
+     path: 'adminLogin', 
+     component: AdminLoginComponent 
+    },
+{
+     path: 'admin/movies',
+     component: MovieListAdminComponent ,
+    canActivate: [authGuard] 
+},
+{ 
+    path: 'admin/movies/add',
+     component:AddComponent,
+     canActivate: [authGuard] 
+     },
+{
+     path: 'admin/movies/edit/:id',
+     component: EditComponent,
+     canActivate: [authGuard] 
+     },
+     {
+        path: 'admin/movies/delete/:id',
+        component: DeleteComponent,
+        canActivate: [authGuard] 
+        },
+     {
+        path:'adminDashboard',
+        component:AdmindashboardComponent,
+        canActivate: [authGuard] 
+     }
     
 ];

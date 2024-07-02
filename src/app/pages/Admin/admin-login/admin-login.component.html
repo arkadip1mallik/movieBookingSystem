@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <div class="card">
+          <div class="text-center">
+           <div class="img" style="margin-left: 150px;">
+            <!-- <img src="images/Login.png" alt="login.png"> -->
+             <h1>Hello Admin.</h1>
+             <h4>Welcome Back.</h4>
+             <h6 style="width: max-content;">Please Login to continue.</h6>
+           </div>
+  
+            <div class="loginForm" style="margin-left: 470px;">
+                <h2>Admin Login</h2>
+                <form (ngSubmit)="adminLogin()">
+                  <div>
+                    <label for="email">Email <span>*</span>:</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="email" />
+                  </div>
+                  <div>
+                    <label for="password">Password <span>*</span>:</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" />
+                  </div>
+                  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div><br>
+                  <button type="submit">Login</button>
+                </form><br>
+    <a routerLink="/login" style="color: rgb(22, 221, 195);">Not the Admin? SignIn as a User</a>
+  </div>
+</div>
+</div>

@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">xlayerMovies</a>
@@ -13,7 +12,9 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+ 
     <div class="collapse navbar-collapse" id="navbarScroll">
+      <header>
       <ul
         class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
         style="--bs-scroll-height: 100px"
@@ -31,62 +32,33 @@
           <a class="nav-link" routerLink="bookingHist">Bookings</a>
         </li>
       </ul>
-      <!-- <div class="col-3">
-        <div style="display: flex; align-items: center">
-          <mat-form-field appearance="outline">
-            <mat-label>State</mat-label>
-            <mat-select [(ngModel)]="selectedState" (click)="onChangeState()">
-              <mat-option *ngFor="let state of stateList" [value]="state.value">
-                {{ state.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div> -->
-      <!-- <form class="d-flex" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
-      <ul
-        class="navbar-nav me-5 my-2 my-lg-0 navbar-nav-scroll"
-        style="--bs-scroll-height: 100px"
-      >
-     
-
-
+  
+    </header>
+     </div>
+      <ul class="navbar-nav me-4 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
         <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><button>Login</button></a></li>
-        <li *ngIf="isLoggedIn" (mouseover)="showProfileDropdown = true" (mouseleave)="showProfileDropdown = false">
-          <a href="javascript:void(0)">My Profile</a>
-          <ul *ngIf="showProfileDropdown">
-            <li><a href="javascript:void(0)">Email: {{ userProfile.email }}</a></li>
-            <li><a href="javascript:void(0)">Name: {{ userProfile.name }}</a></li>
-            <li><a href="javascript:void(0)">Phone: {{ userProfile.phone }}</a></li>
-            <li><a (click)="logout()" href="javascript:void(0)"><button>Logout</button></a></li>
-          </ul>
-        </li>
-    
-        
-    
+        <div class="profile" *ngIf="isLoggedIn">
+          <img class="profile-picture" src="images/xlayer.png" alt="Profile Picture" (click)="showProfileDetails =! showProfileDetails">
+          <div class="profile-details" *ngIf="showProfileDetails">
+            <h2>{{ userProfile.name }}</h2>
+            <p>Email: {{ userProfile.email }}</p>
+            <p>Phone: {{ userProfile.phone }}</p>
+            <button (click)="logout()">Logout</button>
+          </div>
+        </div>
       </ul>
-    </div>
+   
   </div>
 </nav>
 
-
 <div style="background-color: rgb(46, 43, 43);">
+  <header *ngIf="!(authService.isAdmin$ | async)"></header>
   <router-outlet></router-outlet>
 </div>
-
 
 <footer>
   <div class="icons">
       <span class="innerIcon">
-    
         <img src="images/faceb.png" class="icon" alt="facebook" />
         <img src="images/you.png" class="icon" alt="youtube" />
         <img src="images/instag.png" class="icon" alt="instagram" />
@@ -101,7 +73,6 @@
       <h2>XLAYER MOVIE TEAM</h2>
       <p class="flexSpan">
         <span>IT BHAWAN, 5th floor</span>
-        
         <span>Tripura, India</span>
         <span class="flex">
           <span><b>Tel Fax:</b></span>
@@ -132,14 +103,8 @@
           </span>
           <span>contact&#64;xlayer.in</span>
         </span>
-
-
-  
       </p>
     </div>
-
-
-
   </div>
   <span class="lastCopy">Copyright©xLayer Technologies Private Limited 2024</span>
 </footer>

@@ -3,13 +3,17 @@
   </div>
 <div class="movieBooking">
     <div class="imageM"> 
-        <img src="images/selectbox.png" alt="selectbox">
+        <!-- <img src="images/selectbox.png" alt="selectbox"> -->
+       
     </div>
+    
     <div class="overAll">
         
         <div class="centerBook">
-            
-            <h2 style="color: white;"> Please Select Your Seat</h2>
+            <h5 style="color: red;">Seats Booked</h5>
+            <h5 style="color: green;">Seats Available</h5>
+            <h5 style="color: yellow;">Seats Selected</h5>
+           <br><br> <h2 style="color: white;"> Please Select Your Seat</h2>
         <p>Total Seats Selected: {{ seatsSelected.length}}</p>
         <p>Total Amount: Rs. {{totalAmount}}</p>
         
@@ -43,9 +47,15 @@
         <div *ngFor="let row of rowId; let rowIndex = index">
             <div class="seats">
                 <span>{{row}}
-                    <button *ngFor="let col of column; let colIndex = index" [class.selected]="seatsSelected.includes(row + col)" (click)="seatToggling(row, col)">
-                        {{ col }}
-                      </button>
+                     <button *ngFor="let col of column; let colIndex = index"         [ngClass]="{
+                        'available-seat': !paidSeats.includes(row + col) && !seatsSelected.includes(row + col),
+                        'booked-seat': paidSeats.includes(row + col),
+                        'selected-seat': seatsSelected.includes(row + col)
+                      }"
+                      [disabled]="paidSeats.includes(row + col)"
+               (click)="seatToggling(row, col)">
+            {{ col }}
+          </button>
                   </span>
               
             </div>

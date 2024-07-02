@@ -16,18 +16,19 @@ import { BookNowComponent } from '../book-now/book-now.component';
   styleUrl: './booking.component.scss'
 })
 export class BookingComponent implements OnInit{
+ movieId: string ='';
+  selectedDate: Date = new Date(); 
+  selectedScreen:string='';
+  selectedTime:string='';
   seatsSelected: string[] = [];
   totalAmount: number = 0;
-  selectedDate: Date = new Date(); 
-  selectedTime:string='';
-  selectedScreen:string='';
  constructor(private router:Router, private paymentService: PaymentserviceService,private dialog: MatDialog,private route: ActivatedRoute){}
   onBookingConfirmed(eventData: { seats: string[], totalAmount: number, date:Date, time:string, screen:string }) {
-    this.seatsSelected = eventData.seats;
-    this.totalAmount = eventData.totalAmount;
     this.selectedDate = eventData.date;
     this.selectedTime = eventData.time;
     this.selectedScreen = eventData.screen;
+    this.seatsSelected = eventData.seats;
+    this.totalAmount = eventData.totalAmount;
   }
      
   proceedToPayment():void {

@@ -64,6 +64,7 @@
     border-radius: 8px;
     outline: none;
     border: 1px solid grey;
+    color: white;
   }
   button1{
     background: rgb(78, 63, 63);
@@ -83,4 +84,17 @@
     outline: none;
     border: 1px solid grey;
   }
-  
+
+@media (max-width: 768px) {
+  .movie-details {
+      padding: 10px;
+  }
+
+  button {
+      margin-left: 150px;
+  }
+
+  button1 {
+      margin-left: 0;
+  }
+}
