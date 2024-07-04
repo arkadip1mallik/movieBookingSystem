@@ -22,11 +22,11 @@
           <ul *ngIf="searchResults.length > 0">
             <li *ngFor="let movie of searchResults">
               <button [routerLink]="['/movie', movie.id]">
-                <img style="background-color: rgb(41, 36, 36);" [src]="movie.imageUrl" alt="Movie Poster">
+                <img style="background-color: rgb(41, 36, 36);height: 10vh;" [src]="movie.imageUrl" alt="Movie Poster">
                 <div class="overlay">
                   <i class="fas fa-play-circle"></i>
                 </div>
-                <div class="movie-info" style="background-color: rgb(46, 40, 40); width: 100%;">
+                <div class="movie-info" style="background-color: rgb(46, 40, 40); width: 100%;;">
                   <h3>{{movie.title}}</h3>
                   <div class="ratings">
                     <i class="fas fa-star"></i>

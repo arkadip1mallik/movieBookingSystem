@@ -28,7 +28,7 @@ export class MovieBookingV2Component implements OnInit {
   totalAmount: number = 0;
   selectedDateSlot: string = '';
   selectedTimeSlot: string = '';
-  dateSlots: string[] = ['2024-07-03', '2024-07-04', '2024-07-05','2024-07-06','2024-07-07','2024-07-08']; 
+  dateSlots: string[] = ['2024-07-04', '2024-07-05', '2024-07-06','2024-07-07','2024-07-08','2024-07-09']; 
   timeSlots: string[] = ['11:00 AM', '2:00 PM', '5:00 PM','8:00 PM']
   selectedScreen: string = '';
   screens: string[] = ['Screen 1', 'Screen 2', 'Screen 3'];
@@ -52,6 +52,7 @@ export class MovieBookingV2Component implements OnInit {
   // }
 
   ngOnInit(): void {
+    
     const state = window.history.state;
     if (state && state.seats && state.date && state.time && state.screen) {
       this.seatsSelected = state.seats;

@@ -1,3 +1,16 @@
+a:hover{
+  background-color: rgb(120, 24, 199);
+  color: #fff;
+  visibility: visible;
+
+}
+a{
+  visibility: hidden;
+}
+i{
+  visibility: visible;
+}
+
 .profile-picture {
   width: 40px;
   height: 40px;
@@ -88,8 +101,8 @@ footer .innerIcon {
 }
 
 footer .innerIcon .icon {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 
 footer .innerIcon .icon:last-child {

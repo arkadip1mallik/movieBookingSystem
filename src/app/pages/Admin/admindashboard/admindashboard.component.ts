@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../../services/auth Service/auth.service';
 
 @Component({
   selector: 'app-admindashboard',
@@ -20,7 +22,7 @@ export class AdmindashboardComponent implements OnInit {
   editMode = false;
   currentMovieId: number | null = null;
 
-  constructor(private fb: FormBuilder, private adminService: AdminService) {
+  constructor(private fb: FormBuilder, private adminService: AdminService,private http:HttpClient, private authService:AuthService) {
     this.movieForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -31,7 +33,22 @@ export class AdmindashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMovies();
+    // this.loadData();
   }
+
+  // loadData(): void {
+  //   // const token = this.authService.getToken();
+  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+  //   this.http.get<any>(`${"http://10.10.10.10.139/api/login"}`, { headers }).subscribe(
+  //     data => {
+  //       console.log(data);
+  //     },
+  //     error => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 
   loadMovies(): void {
     this.adminService.getMovies().subscribe((movies) => {

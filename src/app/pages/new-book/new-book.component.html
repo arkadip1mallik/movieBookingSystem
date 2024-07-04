@@ -1,0 +1,33 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="movie_id">Movie ID:</label>
+      <input id="movie_id" formControlName="movie_id">
+    </div>
+  
+    <div>
+      <label for="showdate">Show Date:</label>
+      <input id="showdate" type="date" formControlName="showdate">
+    </div>
+  
+    <div>
+      <label for="showtime">Show Time:</label>
+      <select id="showtime" formControlName="showtime">
+        <option *ngFor="let time of showtimes" [value]="time">{{ time }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="screen">Screen:</label>
+      <select id="screen" formControlName="screen">
+        <option *ngFor="let screen of screens" [value]="screen">{{ screen }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="seats">Seats (comma-separated):</label>
+      <input id="seats" formControlName="seats">
+    </div>
+  
+    <button type="submit" [disabled]="!bookingForm.valid">Submit</button>
+  </form>
+  

@@ -26,10 +26,10 @@ export interface PeriodicElement {
 
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {orderId: 1, name: 'arka', place: 'Ssr Cinema Hall', ticket: '#7894', price: 300, date: new Date('2024-06-12') , time:'4:00',seat:'A8,A9',screen:'Screen1',downloadUrl: ''},
-  {orderId: 2, name: 'arka', place: 'Ssr Cinema Hall',ticket: '#7895', price: 450,date: new Date('2024-06-30'),time:'7:00',seat:'E5,E6',screen:'Screen1', downloadUrl: ''},
-
-
+  {orderId: 1, name: 'arka', place: 'Ssr Cinema Hall', ticket: '#7894', price: 300, date: new Date('2024-06-12') , time:'05:00',seat:'A8,A9',screen:'Screen1',downloadUrl: ''},
+  {orderId: 2, name: 'arka', place: 'Ssr Cinema Hall',ticket: '#7895', price: 450,date: new Date('2024-06-30'),time:'08:00',seat:'E5,E6',screen:'Screen1', downloadUrl: ''},
+  {orderId: 3, name: 'arka', place: 'Ssr Cinema Hall',ticket: '#7896', price: 600,date: new Date('2024-07-04'),time:'02:00',seat:'D1,D2,D3,D4',screen:'Screen1', downloadUrl: ''},
+  {orderId: 4, name: 'arka', place: 'Ssr Cinema Hall',ticket: '#7897', price: 300,date: new Date('2024-07-07'),time:'08:00',seat:'A3,A4',screen:'Screen1', downloadUrl: ''},
 ];
 @Component({
   selector: 'app-booking-history',

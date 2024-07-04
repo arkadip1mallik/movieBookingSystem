@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { movieDatas } from '../movie-details/movie-details.component';
 import { CommonModule } from '@angular/common';
+import { moviesData } from '../movie-list/movie-list.component';
 @Component({
   selector: 'app-upcoming',
   standalone: true,
@@ -11,13 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class UpcomingComponent implements OnInit {
   upmovies:any;
-
+  movies:any;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
    
     const id = this.route.snapshot.paramMap.get('id');
-  
   
     this.upmovies = movieDatas.find(upmovies => upmovies.id === id);
   }

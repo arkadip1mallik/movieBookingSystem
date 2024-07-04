@@ -16,7 +16,7 @@ import { BookNowComponent } from '../book-now/book-now.component';
   styleUrl: './booking.component.scss'
 })
 export class BookingComponent implements OnInit{
- movieId: string ='';
+  movieId: string ='';
   selectedDate: Date = new Date(); 
   selectedScreen:string='';
   selectedTime:string='';
@@ -52,5 +52,8 @@ export class BookingComponent implements OnInit{
       }
     });
    
+  }
+  formatDate(date: Date): string {
+    return date.toISOString().split('T')[0];
   }
 }

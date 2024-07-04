@@ -7,19 +7,27 @@ import {
 } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BookingService } from '../services/Booking Service/booking.service';
+import { AuthService } from '../services/auth Service/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+// import { AuthInterceptor } from '../services/auth Service/auth.interception';
 @Component({
   selector: 'app-book-now',
   standalone: true,
-  imports: [MatDialogContent, MatDialogActions, CommonModule],
+  imports: [MatDialogContent, MatDialogActions, CommonModule,RouterLink],
+  // providers: [
+  //   AuthService,
+  //   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  // ],
   templateUrl: './book-now.component.html',
   styleUrl: './book-now.component.scss',
 })
 export class BookNowComponent {
-  selectedDate: Date | null = null;
+  selectedDate: Date;
   selectedTime: string = '';
   selectedScreen: string = '';
+
   constructor(
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -32,10 +40,11 @@ export class BookNowComponent {
     this.selectedTime = this.data.time;
     this.selectedScreen = this.data.screen;
   }
+
   confirmBooking(): void {
     this.bookingService
       .bookSeats(
-        this.data.movieId ,
+        this.data.movieId,
         this.data.date,
         this.data.time,
         this.data.screen,
@@ -62,4 +71,5 @@ export class BookNowComponent {
   close() {
     this.dialog.closeAll();
   }
+
 }

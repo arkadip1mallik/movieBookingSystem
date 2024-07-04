@@ -21,6 +21,7 @@ import {AdmindashboardComponent} from './pages/Admin/admindashboard/admindashboa
 import {AddComponent} from '../app/pages/Admin/add/add.component';
 import {EditComponent} from '../app/pages/Admin/edit/edit.component';
 import {DeleteComponent} from '../app/pages/Admin/delete/delete.component';
+import { NewBookComponent } from './pages/new-book/new-book.component';
 export const routes: Routes = [
    { path : '',
     component:MovieDetailsComponent,
@@ -115,6 +116,10 @@ export const routes: Routes = [
         path:'adminDashboard',
         component:AdmindashboardComponent,
         canActivate: [authGuard] 
+     },
+     {
+        path:'Books',
+        component:NewBookComponent  
      }
     
 ];

@@ -84,7 +84,7 @@ export class MovieService {
       imageUrl: 'images/insiout.png',
      
     },
-        {
+    {
       id: '7',
       title: 'Jaat & Juliet 3',
       description:

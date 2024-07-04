@@ -9,21 +9,26 @@ export class BookingService {
   private apiUrl = 'http://10.10.10.139/api/booking'; 
   constructor(private http: HttpClient) {}
 
-  bookSeats(movieId: string, date: string, time: string, screen: string,seats: string[], totalAmount: number ): Observable<any> {
-    const bookingDetails = {
-     
-      movieId,
-      date,
-      time,
+  bookSeats(movieId: string, showdate: string, showtime: string, screen: string, seats: string[], totalAmount: number): Observable<any> {
+    const bookingData = {
+      movie_id: movieId,
+      showdate,
+      showtime,
       screen,
       seats,
-      totalAmount,
+      total_price: totalAmount
     };
-    return this.http.post<any>(this.apiUrl, bookingDetails);
+    return this.http.post(`${this.apiUrl}`, bookingData);
   }
+
   getPaidSeats(movieId: string, date: string, time: string, screen: string): Observable<any> {
-    const url = `${this.apiUrl}/paidSeats?movieId=${movieId}&date=${date}&time=${time}&screen=${screen}`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(`${this.apiUrl}`, {
+      params: {
+        movieId,
+        date,
+        time,
+        screen
+      }
+    });
   }
-  
 }

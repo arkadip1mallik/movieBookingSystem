@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">xlayerMovies</a>
+    <a class="navbar-brand" routerLink=""><i class="ri-home-fill">xlayerMovies</i></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -21,22 +21,22 @@
       >
      
         <li class="nav-item">
-          <a class="nav-link" routerLink="movie-list">Movies</a>
+          <a class="nav-link" routerLink="movie-list"><i class="ri-clapperboard-fill"></i>Movies</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact Us</a>
+          <a class="nav-link" routerLink="contact"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
         </li>
   
         <li class="nav-item">
-          <a class="nav-link" routerLink="bookingHist">Bookings</a>
+          <a class="nav-link" routerLink="bookingHist"><i class="ri-history-line"></i>Bookings</a>
         </li>
       </ul>
   
     </header>
      </div>
       <ul class="navbar-nav me-4 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
-        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><button>Login</button></a></li>
+        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><i class="fa fa-fw fa-user"></i><button>Login</button></a></li>
         <div class="profile" *ngIf="isLoggedIn">
           <img class="profile-picture" src="images/xlayer.png" alt="Profile Picture" (click)="showProfileDetails =! showProfileDetails">
           <div class="profile-details" *ngIf="showProfileDetails">
@@ -59,9 +59,12 @@
 <footer>
   <div class="icons">
       <span class="innerIcon">
-        <img src="images/faceb.png" class="icon" alt="facebook" />
+        <!-- <img src="images/faceb.png" class="icon" alt="facebook" />
         <img src="images/you.png" class="icon" alt="youtube" />
-        <img src="images/instag.png" class="icon" alt="instagram" />
+        <img src="images/instag.png" class="icon" alt="instagram" /> -->
+        <i class="ri-facebook-fill"></i>
+        <i class="ri-youtube-line"></i>
+        <i class="ri-instagram-line"></i>
       </span>
   </div>
   <div class="footerFlex">
