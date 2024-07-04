@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { AuthService } from './pages/services/auth Service/auth.service';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,7 @@ export class AppComponent {
     },
   ];
   showProfileDetails = false;
-  constructor(private router: Router,public authService: AuthService) {
+  constructor(private router: Router,public authService: AuthService,private dialog: MatDialog) {
     this.selectedState = 'Test@'
 
   }
@@ -87,8 +88,11 @@ export class AppComponent {
     this.authService.logout();
     this.showProfileDropdown = false;
     this.router.navigateByUrl('login');
+    this.close();
   }
-
+  close(){
+    this.dialog.closeAll();
+  }
   showProfileSection: boolean = false;
   profileImageUrl: string = ''; 
 

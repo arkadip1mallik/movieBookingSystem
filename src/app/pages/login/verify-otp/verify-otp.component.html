@@ -1,0 +1,13 @@
+<br><div class="btn-1">&nbsp; &nbsp;
+    <button1 routerLink="/request-otp">Go Back</button1>
+</div>
+<br><br><br><br><br><br><br><div class="verify-otp-container">
+    <h2>Verify OTP</h2>
+    <form (ngSubmit)="verifyOtp()">
+      <div>
+        <label for="otp">OTP<span>*</span>:</label>&nbsp;
+        <input type="text" id="otp" [(ngModel)]="otp" name="otp" required>
+      </div><br>
+      <button type="submit">Verify OTP</button>
+    </form>
+  </div><br><br><br><br><br>

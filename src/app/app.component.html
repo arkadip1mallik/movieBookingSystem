@@ -36,7 +36,7 @@
     </header>
      </div>
       <ul class="navbar-nav me-4 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
-        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><i class="fa fa-fw fa-user"></i><button>Login</button></a></li>
+        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="login"><i class="fa fa-fw fa-user"></i>Login</a></li>
         <div class="profile" *ngIf="isLoggedIn">
           <img class="profile-picture" src="images/xlayer.png" alt="Profile Picture" (click)="showProfileDetails =! showProfileDetails">
           <div class="profile-details" *ngIf="showProfileDetails">
@@ -62,9 +62,15 @@
         <!-- <img src="images/faceb.png" class="icon" alt="facebook" />
         <img src="images/you.png" class="icon" alt="youtube" />
         <img src="images/instag.png" class="icon" alt="instagram" /> -->
-        <i class="ri-facebook-fill"></i>
-        <i class="ri-youtube-line"></i>
-        <i class="ri-instagram-line"></i>
+        <a href="https://facebook.com/xlayercom" class="s_share_facebook" target="_blank" data-original-title="" title="">
+          <i class="ri-facebook-line rounded shadow-sm" data-original-title="" title="" aria-describedby="tooltip455382" style="color: white;"></i>
+        </a>
+        <a href="https://twitter.com/xlayercom" class="s_share_twitter" target="_blank" data-original-title="" title="">
+          <i class="ri-twitter-line rounded-circle rounded shadow-sm" data-original-title="" title="" aria-describedby="tooltip690058" style="color: white;"></i>
+        </a>
+        <a href="https://in.linkedin.com/company/xlayercom" class="s_share_linkedin" target="_blank" data-original-title="" title="">
+          <i class="ri-linkedin-line rounded-circle rounded shadow-sm" data-original-title="" title="" aria-describedby="tooltip983117" style="color: white;"></i>
+        </a>
       </span>
   </div>
   <div class="footerFlex">

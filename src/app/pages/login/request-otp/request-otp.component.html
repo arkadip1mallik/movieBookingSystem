@@ -1,0 +1,13 @@
+<br><div class="btn-1">&nbsp; &nbsp;
+    <button1 routerLink="/login">Go Back</button1>
+</div>
+<br><br><br><br><br><br><br><div class="request-otp-container">
+    <h2>Request OTP</h2>
+    <form (ngSubmit)="requestOtp()">
+      <div>
+        <label for="email">Email<span>*</span> :</label>&nbsp;
+        <input type="email" id="email" [(ngModel)]="email" name="email" required>
+      </div><br>
+      <button type="submit">Request OTP</button>
+    </form>
+  </div><br><br><br><br><br>

@@ -53,6 +53,6 @@ export class LoginDialogComponent {
             console.error('Login failed:', error);
             
           }
-        );
+        );this.close();
       }
 }  

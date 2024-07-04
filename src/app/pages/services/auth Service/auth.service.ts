@@ -98,6 +98,16 @@
   isLoggedInAsAdmin(): boolean {
     return this.isAdminSubject.value;
   }
+  requestOtp(email: string): Observable<any> {
+    return this.http.post<any>(`${"http://10.10.10.139/api/forgot_password"}`, { email });
+  }
 
+  verifyOtp(email: string, otp: string): Observable<any> {
+    return this.http.post<any>(`${"http://10.10.10.139/api/verification_pw"}`, { email, otp });
+  }
+
+  resetPassword(email: string, otp: string, newPassword: string): Observable<any> {
+    return this.http.post<any>(`${"http://10.10.10.139/api/reset_pw"}`, { email, otp, newPassword });
+  }
 
   }

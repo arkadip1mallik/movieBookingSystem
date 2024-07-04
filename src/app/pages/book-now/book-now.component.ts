@@ -71,5 +71,9 @@ export class BookNowComponent {
   close() {
     this.dialog.closeAll();
   }
+  booking(){
+    this.router.navigate(['/bookingHist']);
+    this.close();
+  }
 
 }

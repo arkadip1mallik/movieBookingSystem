@@ -22,6 +22,9 @@ import {AddComponent} from '../app/pages/Admin/add/add.component';
 import {EditComponent} from '../app/pages/Admin/edit/edit.component';
 import {DeleteComponent} from '../app/pages/Admin/delete/delete.component';
 import { NewBookComponent } from './pages/new-book/new-book.component';
+import { RequestOtpComponent } from './pages/login/request-otp/request-otp.component';
+import { VerifyOtpComponent } from './pages/login/verify-otp/verify-otp.component';
+import { ResetPasswordComponent } from './pages/login/reset-password/reset-password.component';
 export const routes: Routes = [
    { path : '',
     component:MovieDetailsComponent,
@@ -38,6 +41,18 @@ export const routes: Routes = [
       
     ]
    },
+   {
+     path: 'request-otp',
+      component: RequestOtpComponent
+     },
+   {
+     path: 'verify-otp',
+      component: VerifyOtpComponent 
+    },
+   { 
+    path: 'reset-password',
+     component: ResetPasswordComponent 
+    },
    {
     path : 'signup',
    component : SignupComponent,
